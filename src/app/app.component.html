@@ -5,15 +5,9 @@
   </h1>
 </div>
 
-<span *ngFor="let item of getKeys(data)">
-  {{ item }}
-  <br>
-  <span class="subkey" *ngFor="let hi of getKeys(data[item])">
-    {{ hi }}
-    <br>
-    <span class="text">
-      {{ data[item][hi] }}
-    </span>
-  </span>
+<input [(ngModel)]="filterText" type="text">
+
+<span class="subkey" *ngFor="let item of mainObject | mySearchPipe : filterText">
+  {{ item.category }} <br> {{ item.name }} <br> {{ item.text }}
 </span>
 
