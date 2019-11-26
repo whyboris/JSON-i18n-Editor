@@ -29,6 +29,7 @@ export class AppComponent {
   savingInProgress = false;
   selectedPage = 'none';
   viewType: ViewType = 'everything';
+  reviewedOnce: boolean;
 
   constructor() {
     this.categories = this.getKeys(en);
@@ -83,10 +84,11 @@ export class AppComponent {
   }
 
   reviewNow(): void {
-    this.selectedPage = 'none';
     this.filterText = '';
     this.filterText2 = '';
     this.viewType = 'modified';
+    this.selectedPage = 'none';
+    this.reviewedOnce = true;
   }
 
   /**

@@ -57,7 +57,6 @@
 
 </virtual-scroller>
 
-
 <button
   (click)="reviewNow()"
   class="button-review"
@@ -66,8 +65,8 @@
   REVIEW
 </button>
 
-
 <button
+  *ngIf="reviewedOnce"
   (click)="saveEverything()"
   class="button-save"
   [disabled]=savingInProgress
