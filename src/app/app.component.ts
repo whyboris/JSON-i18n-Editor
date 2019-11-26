@@ -20,22 +20,15 @@ export type ViewType = 'everything' | 'modified' | 'untranslated';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  // data = en;
-
-  context: string[];
-
-  filterText = '';
-  filterText2 = '';
-
-  viewType: ViewType = 'everything';
 
   categories: string[];
-
+  context: string[];
+  filterText = '';
+  filterText2 = '';
   mainObject: TranslationItem[];
-
-  selectedPage = 'none';
-
   savingInProgress = false;
+  selectedPage = 'none';
+  viewType: ViewType = 'everything';
 
   constructor() {
     this.categories = this.getKeys(en);
@@ -49,9 +42,9 @@ export class AppComponent {
     return Object.keys(anyObj);
   }
 
-  // plan:
-  // create array of objects:
-
+  /**
+   * Flatten out the JSON into an easy-to use TranslationItem array
+   */
   createMainObject(data): TranslationItem[] {
 
     const categories: string[] = this.getKeys(data);
@@ -76,7 +69,6 @@ export class AppComponent {
   }
 
   changeView(lol: ViewType): void {
-    console.log(lol);
     this.viewType = lol;
     this.scrollToTop();
   }
@@ -90,13 +82,21 @@ export class AppComponent {
     document.getElementById('scrollDiv').scrollTop = 0;
   }
 
+  /**
+   * Create JSON
+   */
   saveEverything() {
     this.savingInProgress = true;
-    console.log('saving lol');
-  }
+    const toSave: any = {};
 
-  changeHappened(lol) {
-    console.log(lol[0]);
+    this.categories.forEach((category) => {
+      toSave[category] = {};
+    });
+
+    this.mainObject.forEach((element) => {
+      toSave[element.category][element.name] = element.editedText.replace('\n', '');
+    });
+    console.log(toSave);
   }
 
 }
