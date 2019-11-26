@@ -74,14 +74,14 @@ select {
   background-color: #80cf0f;
   border-radius: 5px;
   border: 0;
-  bottom: 20px;
+  bottom: 18px;
+  height: 40px;
   box-shadow: 1px 2px 4px rgba(0,0,0,0.5);
   color: white;
   cursor: pointer;
   outline: none;
   padding: 12px 20px;
   position: absolute;
-  right: 30px;
   transition-property: background-color, box-shadow, color;
   width: 100px;
 
@@ -103,6 +103,45 @@ select {
   }
 }
 
+.button-save {
+  right: 20px;
+}
+
 .button-review {
   left: 65%;
+}
+
+.help {
+  border-radius: 50%;
+  border: 1px solid #80cf0f;
+  box-sizing: border-box;
+  cursor: default;
+  display: block;
+  font-size: 12px;
+  height: 20px;
+  padding-top: 2px;
+  position: absolute;
+  right: 10px;
+  text-align: center;
+  top: 10px;
+  width: 20px;
+
+  &:hover {
+    & + .help-text {
+      display: block;
+    }
+  }
+}
+
+.help-text {
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #80cf0f;
+  display: none;
+  padding: 10px;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  width: 300px;
+  z-index: 3;
 }
