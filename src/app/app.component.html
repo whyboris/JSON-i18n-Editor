@@ -1,8 +1,5 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    hello
-  </h1>
+<div class="heading">
+  Translate Health Impact Fund
 </div>
 
 <select (change)="changeCategory($event.target.value)">
@@ -10,15 +7,27 @@
   <option *ngFor="let category of categories">{{ category }}</option>
 </select>
 
-<input [(ngModel)]="filterText" type="text" placeholder="search english">
-<input [(ngModel)]="filterText2" type="text" placeholder="search german">
+<input
+  [(ngModel)]="filterText"
+  [ngClass]="{ 'not-empty': filterText !== ''}"
+  type="text"
+  placeholder="search english"
+>
+
+<input
+  [(ngModel)]="filterText2"
+  class="search-german"
+  [ngClass]="{ 'not-empty': filterText2 !== ''}"
+  type="text"
+  placeholder="search german"
+>
 
 <div class="scrolling-block">
 
   <ng-container class="subkey" *ngFor="let item of mainObject | mySelectionPipe : selectedPage
-                                                      | mySearchPipe : filterText : true
-                                                      | mySearchPipe : filterText2 : false
-                                                      | showOncePipe">
+                                                              | mySearchPipe : filterText : true
+                                                              | mySearchPipe : filterText2 : false
+                                                              | showOncePipe">
 
     <div class="category" [ngClass]="{ dupe: item.showCategory }">
       {{ item.category }}

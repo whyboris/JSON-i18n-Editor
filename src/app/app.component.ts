@@ -21,8 +21,8 @@ export class AppComponent {
 
   context: string[];
 
-  filterText: string;
-  filterText2: string;
+  filterText = '';
+  filterText2 = '';
 
   categories: string[];
 
