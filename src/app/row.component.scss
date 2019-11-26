@@ -46,8 +46,9 @@
 }
 
 .name {
-  font-weight: bold;
+  cursor: default;
   display: block;
+  font-weight: bold;
   padding: 10px 10px 6px;
 }
 
@@ -62,6 +63,12 @@
   padding: 0;
   vertical-align: top;
   width: 30%;
+}
+
+.text,
+.translation {
+  color: #333333;
+  cursor: default;
 }
 
 .text {
