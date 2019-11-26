@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 
 import { VirtualScrollerModule } from 'ngx-virtual-scroller';
 
+import { HelperService } from './helper.service';
+
 import { AppComponent } from './app.component';
 import { RowComponent } from './row.component';
 
@@ -26,7 +28,11 @@ import { ViewPipe } from './view.pipe';
     FormsModule,
     VirtualScrollerModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    HelperService
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

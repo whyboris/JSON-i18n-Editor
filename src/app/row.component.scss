@@ -1,0 +1,21 @@
+
+.ql-container {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::ng-deep .ql-editor {
+  outline: none;
+  padding: 5px;
+
+  p {
+    margin-block-end: 0;
+    margin-block-start: 0;
+    padding: 0;
+  }
+}
+
+::ng-deep .ql-clipboard {
+  display: none;
+}

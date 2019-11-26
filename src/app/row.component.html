@@ -10,10 +10,14 @@
   {{ item.text }}
 </div>
 
-<div class="translation">
+<!-- <div class="translation">
   {{ item.translation }}
-</div>
+</div> -->
 
-<div class="editor" contenteditable="true">
+<div class="translation" #editor1></div>
+
+<!-- <div class="editor" contenteditable="true">
   {{ item.translation }}
-</div>
+</div> -->
+
+<div class="editor" (keyup)="findDiff()" #editor2></div>

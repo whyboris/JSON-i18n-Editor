@@ -22,6 +22,7 @@
 
 <input
   [(ngModel)]="filterText"
+  (keyup.esc)="filterText = ''"
   [ngClass]="{ 'not-empty': filterText !== ''}"
   type="text"
   placeholder="search english"
@@ -29,6 +30,7 @@
 
 <input
   [(ngModel)]="filterText2"
+  (keyup.esc)="filterText2 = ''"
   class="search-german"
   [ngClass]="{ 'not-empty': filterText2 !== ''}"
   type="text"
