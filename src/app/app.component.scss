@@ -62,5 +62,13 @@ input {
   border: 1px solid #DDDDDD;
   display: inline-block;
   margin-left: 20px;
+  vertical-align: top;
+  width: 30%;
+}
+
+.editor {
+  border: 1px solid #888888;
+  display: inline-block;
+  margin-left: 20px;
   width: 30%;
 }
