@@ -1,6 +1,20 @@
+input,
+select {
+  border-radius: 5px;
+  height: 30px;
+  width: 150px;
+  border: 1px solid #999999;
+  margin: 0 10px;
+}
+
+input {
+  padding-left: 10px;
+  outline: none;
+}
+
 .scrolling-block {
-  border-bottom: 1px solid red;
-  border-top: 1px solid red;
+  border-bottom: 1px solid #888888;
+  border-top: 1px solid #888888;
   display: block;
   height: 80vh;
   margin: 20px 0;
@@ -24,16 +38,20 @@
   position: sticky;
   text-align: center;
   top: 0px;
+
+  &:first-of-type {
+    margin-top: 0 !important;
+  }
 }
 
 .name {
   font-weight: bold;
   display: block;
-  margin-top: 10px;
-  margin-left: 10px;
+  margin: 10px 10px 6px;;
 }
 
 .text {
+  border: 1px solid #DDDDDD;
   display: inline-block;
   margin-left: 20px;
   vertical-align: top;
@@ -41,7 +59,7 @@
 }
 
 .translation {
-  border: 1px solid red;
+  border: 1px solid #DDDDDD;
   display: inline-block;
   margin-left: 20px;
   width: 30%;

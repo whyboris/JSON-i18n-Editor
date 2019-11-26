@@ -10,15 +10,16 @@
   <option *ngFor="let category of categories">{{ category }}</option>
 </select>
 
-<input [(ngModel)]="filterText" type="text">
-<input [(ngModel)]="filterText2" type="text">
+<input [(ngModel)]="filterText" type="text" placeholder="search english">
+<input [(ngModel)]="filterText2" type="text" placeholder="search german">
 
 <div class="scrolling-block">
 
-  <span class="subkey" *ngFor="let item of mainObject | mySelectionPipe : selectedPage
+  <ng-container class="subkey" *ngFor="let item of mainObject | mySelectionPipe : selectedPage
                                                       | mySearchPipe : filterText : true
                                                       | mySearchPipe : filterText2 : false
                                                       | showOncePipe">
+
     <div class="category" [ngClass]="{ dupe: item.showCategory }">
       {{ item.category }}
     </div>
@@ -31,6 +32,6 @@
     <div class="translation">
       {{ item.translation }}
     </div>
-  </span>
+  </ng-container>
 
 </div>
