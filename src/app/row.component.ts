@@ -27,6 +27,8 @@ export class RowComponent implements AfterViewInit {
 
   isModified = false;
 
+  timeoutRef: any;
+
   keyBindings: any = {
     tab: {
       key: 9, // tab
@@ -66,9 +68,7 @@ export class RowComponent implements AfterViewInit {
     this.editor2.setContents(newOps2);
 
     if (this.item.translation !== this.item.editedText) {
-      setTimeout(() => {
-        this.findDiff();
-      }, 1);
+      this.findDiff();
     }
   }
 
@@ -77,7 +77,18 @@ export class RowComponent implements AfterViewInit {
    * Generate the deletions/additions markup and render
    */
   findDiff() {
+    // throttle it at least a bit!
+    clearTimeout(this.timeoutRef);
 
+    this.timeoutRef = setTimeout(() => {
+      this.diffLogic();
+    }, 150);
+  }
+
+  /**
+   * Should only be accessed from `findDiff` (so it is throttled)
+   */
+  diffLogic() {
     const oldContent = this.editor1.getContents();
     const newContent = this.editor2.getContents();
 
@@ -101,7 +112,6 @@ export class RowComponent implements AfterViewInit {
     } else {
       this.isModified = false;
     }
-
   }
 
 }
