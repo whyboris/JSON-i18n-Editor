@@ -1,9 +1,23 @@
-.subkey {
+.category {
   display: block;
   margin-left: 20px;
 }
 
-.text {
+.name {
   display: block;
   margin-left: 40px;
+}
+
+.text {
+  display: inline-block;
+  margin-left: 60px;
+  vertical-align: top;
+  width: 30%;
+}
+
+.translation {
+  border: 1px solid red;
+  display: inline-block;
+  margin-left: 60px;
+  width: 30%;
 }

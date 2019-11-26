@@ -11,7 +11,7 @@ export class MySearchPipe implements PipeTransform {
   /**
    * Return only items that match search string
    */
-  transform(data: TranslationItem[], searchText: string): any {
+  transform(data: TranslationItem[], searchText: string, original: boolean): any {
 
     console.log(searchText);
 
@@ -20,7 +20,7 @@ export class MySearchPipe implements PipeTransform {
     }
 
     return data.filter((element) => {
-      return element.text.includes(searchText);
+      return (original ? element.text : element.translation).toLowerCase().includes(searchText.toLowerCase());
     });
   }
 

@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 
 const en: any = require('../assets/en.json');
+const de: any = require('../assets/de.json');
 
 export interface TranslationItem {
   category: string;
   name: string;
   text: string;
+  translation?: string;
 }
 
 @Component({
@@ -19,6 +21,7 @@ export class AppComponent {
   context: string[];
 
   filterText: string;
+  filterText2: string;
 
   mainObject: TranslationItem[];
 
@@ -47,9 +50,10 @@ export class AppComponent {
 
       names.forEach((name) => {
         returnObject.push({
-          category: category,
-          name: name,
+          category,
+          name,
           text: data[category][name],
+          translation: de[category][name] || ''
         });
       });
     });

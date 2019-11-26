@@ -6,8 +6,20 @@
 </div>
 
 <input [(ngModel)]="filterText" type="text">
+<input [(ngModel)]="filterText2" type="text">
 
-<span class="subkey" *ngFor="let item of mainObject | mySearchPipe : filterText">
-  {{ item.category }} <br> {{ item.name }} <br> {{ item.text }}
+<span class="subkey" *ngFor="let item of mainObject | mySearchPipe : filterText : true | mySearchPipe : filterText2 : false">
+  <div class="category">
+    {{ item.category }}
+  </div>
+  <div class="name">
+    {{ item.name }}
+  </div>
+  <div class="text">
+    {{ item.text }}
+  </div>
+  <div class="translation">
+    {{ item.translation }}
+  </div>
 </span>
 
