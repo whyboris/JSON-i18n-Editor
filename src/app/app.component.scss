@@ -1,9 +1,33 @@
+.scrolling-block {
+  border-bottom: 1px solid red;
+  border-top: 1px solid red;
+  display: block;
+  height: 80vh;
+  margin: 20px 0;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+.dupe {
+  border: 1px solid green;
+  display: none !important;
+}
+
 .category {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  background: white;
+  font-size: 30px;
+  text-align: center;
+  margin: 20px 0 6px;
+  font-weight: bold;
   display: block;
   margin-left: 20px;
 }
 
 .name {
+  font-weight: bold;
   display: block;
   margin-left: 40px;
 }

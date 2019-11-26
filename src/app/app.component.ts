@@ -8,6 +8,7 @@ export interface TranslationItem {
   name: string;
   text: string;
   translation?: string;
+  showCategory?: boolean;
 }
 
 @Component({

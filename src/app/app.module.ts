@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 
 import { MySearchPipe } from './search.pipe';
 import { PagePipe } from './page.pipe';
+import { ShowOncePipe } from './show-once.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     MySearchPipe,
-    PagePipe
+    PagePipe,
+    ShowOncePipe
   ],
   imports: [
     BrowserModule,

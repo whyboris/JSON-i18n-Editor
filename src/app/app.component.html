@@ -13,20 +13,24 @@
 <input [(ngModel)]="filterText" type="text">
 <input [(ngModel)]="filterText2" type="text">
 
-<span class="subkey" *ngFor="let item of mainObject | mySelectionPipe : selectedPage
-                                                    | mySearchPipe : filterText : true
-                                                    | mySearchPipe : filterText2 : false">
-  <div class="category">
-    {{ item.category }}
-  </div>
-  <div class="name">
-    {{ item.name }}
-  </div>
-  <div class="text">
-    {{ item.text }}
-  </div>
-  <div class="translation">
-    {{ item.translation }}
-  </div>
-</span>
+<div class="scrolling-block">
 
+  <span class="subkey" *ngFor="let item of mainObject | mySelectionPipe : selectedPage
+                                                      | mySearchPipe : filterText : true
+                                                      | mySearchPipe : filterText2 : false
+                                                      | showOncePipe">
+    <div class="category" [ngClass]="{ dupe: item.showCategory }">
+      {{ item.category }}
+    </div>
+    <div class="name">
+      {{ item.name }}
+    </div>
+    <div class="text">
+      {{ item.text }}
+    </div>
+    <div class="translation">
+      {{ item.translation }}
+    </div>
+  </span>
+
+</div>
