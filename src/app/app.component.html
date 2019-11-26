@@ -9,12 +9,20 @@
   </svg>
 </div>
 
-<select class="select-category" id="category-dropdown" (change)="changeCategory($event.target.value)">
+<select
+  (change)="changeCategory($event.target.value)"
+  class="select-category"
+  [ngClass]="{ 'input-changed': selectedPage !== 'none' }"
+>
   <option selected value="none" [selected]="selectedPage === 'none'">All website text</option>
   <option *ngFor="let category of categories">{{ category }}</option>
 </select>
 
-<select class="select-view" id="view-dropdown" (change)="changeView($event.target.value)">
+<select
+  (change)="changeView($event.target.value)"
+  class="select-view"
+  [ngClass]="{ 'input-changed': viewType !== 'everything' }"
+>
   <option value="everything" [selected]="viewType === 'everything'">Showing everything</option>
   <option value="untranslated" [selected]="viewType === 'untranslated'">Showing untranslated</option>
   <option value="modified" [selected]="viewType === 'modified'">Showing modified</option>
@@ -23,7 +31,7 @@
 <input
   [(ngModel)]="filterText"
   (keyup.esc)="filterText = ''"
-  [ngClass]="{ 'not-empty': filterText !== ''}"
+  [ngClass]="{ 'input-changed': filterText !== ''}"
   type="text"
   placeholder="search english"
 >
@@ -32,7 +40,7 @@
   [(ngModel)]="filterText2"
   (keyup.esc)="filterText2 = ''"
   class="search-german"
-  [ngClass]="{ 'not-empty': filterText2 !== ''}"
+  [ngClass]="{ 'input-changed': filterText2 !== ''}"
   type="text"
   placeholder="search german"
 >
