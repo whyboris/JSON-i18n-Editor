@@ -20,20 +20,17 @@ input {
 }
 
 select {
-  position: fixed;
-  // top: 83px;
   left: 125px;
+  position: fixed;
   z-index: 2;
 }
 
 .select-category {
-  top: 10px;
-  // left: 5px;
+  top: 5px;
 }
 
 .select-view {
-  top: 44px;
-  // right: 18px;
+  top: 39px;
 }
 
 .heading {
@@ -45,10 +42,10 @@ select {
   border-bottom: 1px solid #80cf0f;
   border-top: 1px solid black;
   display: block;
-  height: calc(100vh - 160px);
+  height: calc(100vh - 150px);
   overflow-y: scroll;
   position: absolute;
-  top: 80px;
+  top: 75px;
   width: 100%;
 
   &:empty {
