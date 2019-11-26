@@ -16,7 +16,7 @@ export class ShowOncePipe implements PipeTransform {
     let lastCategory =  '';
 
     data.forEach((element) => {
-      element.showCategory = element.category === lastCategory;
+      element.showCategory = element.category !== lastCategory;
       lastCategory = element.category;
     });
 

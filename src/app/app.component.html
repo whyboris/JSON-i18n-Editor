@@ -43,7 +43,7 @@
                                                               | myViewPipe : viewType
                                                               | showOncePipe">
 
-    <div class="category" [ngClass]="{ dupe: item.showCategory }">
+    <div *ngIf="item.showCategory" class="category">
       {{ item.category }}
     </div>
 
