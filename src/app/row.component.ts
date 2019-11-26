@@ -58,10 +58,14 @@ export class RowComponent implements AfterViewInit {
 
     const newOps2: any = {
       ops: [{
-        insert: this.item.translation
+        insert: this.item.editedText
       }]
     };
     this.editor2.setContents(newOps2);
+
+    if (this.item.translation !== this.item.editedText) {
+      this.findDiff();
+    }
   }
 
 
@@ -73,7 +77,7 @@ export class RowComponent implements AfterViewInit {
     const oldContent = this.editor1.getContents();
     const newContent = this.editor2.getContents();
 
-    const location: number = this.editor2.getSelection().index;
+    const location: number = (this.editor2.getSelection() || {}).index;
 
     const deleteOnly = this.helperService.find_deletions(oldContent, newContent);
     const addOnly = this.helperService.find_additions(oldContent, newContent);
@@ -82,6 +86,9 @@ export class RowComponent implements AfterViewInit {
     this.editor2.setContents(addOnly);
 
     this.editor2.setSelection(location, 0);
+
+    const newText: string = this.helperService.deltasToPlaintext(this.editor2.getContents());
+    this.item.editedText = newText;
 
   }
 

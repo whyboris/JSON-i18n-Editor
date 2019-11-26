@@ -63,4 +63,23 @@ export class HelperService {
     return adjusted;
   }
 
+  /**
+   * Extract plaintext from deltas
+   */
+  deltasToPlaintext(delta: any): string {
+    if (!delta) {
+      return '';
+    } else {
+      const deltaArr: any = delta.ops ? delta.ops : delta;
+
+      return deltaArr.reduce((text: string, op: any): string => {
+        if (typeof op.insert !== 'string') {
+          return text + ' ';
+        }
+
+        return text + op.insert;
+      }, '');
+    }
+  }
+
 }

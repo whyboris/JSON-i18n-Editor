@@ -8,6 +8,7 @@ export interface TranslationItem {
   name: string;
   text: string;
   translation?: string;
+  editedText?: string;
   showCategory?: boolean;
 }
 
@@ -65,7 +66,8 @@ export class AppComponent {
           category,
           name,
           text: data[category][name],
-          translation: de[category][name] || ''
+          translation: de[category][name] || '',
+          editedText: de[category][name] || '',
         });
       });
     });
