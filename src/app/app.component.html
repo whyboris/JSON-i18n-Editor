@@ -9,9 +9,15 @@
   </svg>
 </div>
 
-<select (change)="changeCategory($event.target.value)">
+<select class="select-category" (change)="changeCategory($event.target.value)">
   <option selected value="none">All website text</option>
   <option *ngFor="let category of categories">{{ category }}</option>
+</select>
+
+<select class="select-view" (change)="changeView($event.target.value)">
+  <option selected value="everything">everything</option>
+  <option value="untranslated">untranslated</option>
+  <option value="modified">modified</option>
 </select>
 
 <input
@@ -34,6 +40,7 @@
   <ng-container class="subkey" *ngFor="let item of mainObject | mySelectionPipe : selectedPage
                                                               | mySearchPipe : filterText : true
                                                               | mySearchPipe : filterText2 : false
+                                                              | myViewPipe : viewType
                                                               | showOncePipe">
 
     <div class="category" [ngClass]="{ dupe: item.showCategory }">

@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { MySearchPipe } from './search.pipe';
 import { PagePipe } from './page.pipe';
 import { ShowOncePipe } from './show-once.pipe';
+import { ViewPipe } from './view.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     MySearchPipe,
     PagePipe,
-    ShowOncePipe
+    ShowOncePipe,
+    ViewPipe,
   ],
   imports: [
     BrowserModule,

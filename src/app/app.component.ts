@@ -11,6 +11,8 @@ export interface TranslationItem {
   showCategory?: boolean;
 }
 
+export type ViewType = 'everything' | 'modified' | 'untranslated';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -23,6 +25,8 @@ export class AppComponent {
 
   filterText = '';
   filterText2 = '';
+
+  viewType: ViewType = 'everything';
 
   categories: string[];
 
@@ -67,6 +71,11 @@ export class AppComponent {
     });
 
     return returnObject;
+  }
+
+  changeView(lol: ViewType) {
+    console.log(lol);
+    this.viewType = lol;
   }
 
   changeCategory(lol: any) {

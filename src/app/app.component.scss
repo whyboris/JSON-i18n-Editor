@@ -19,10 +19,17 @@ input {
 }
 
 select {
-  left: 5px;
   position: fixed;
   top: 83px;
   z-index: 2;
+}
+
+.select-category {
+  left: 5px;
+}
+
+.select-view {
+  right: 18px;
 }
 
 .heading {
