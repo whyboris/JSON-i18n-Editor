@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+import { VirtualScrollerModule } from 'ngx-virtual-scroller';
+
 import { AppComponent } from './app.component';
 import { RowComponent } from './row.component';
 
@@ -21,7 +23,8 @@ import { ViewPipe } from './view.pipe';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    VirtualScrollerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -62,6 +62,11 @@ select {
   border: 3px solid #80cf0f;
 }
 
+.full-row {
+  display: block;
+  min-height: 100px;
+}
+
 .category {
   background-color: #80cf0f;
   box-sizing: border-box;
@@ -73,8 +78,8 @@ select {
   height: 36px;
   margin: 20px 0 10px;
   padding-top: 6px;
-  position: -webkit-sticky;
-  position: sticky;
+  // position: -webkit-sticky;    // does not work with ngx-virtual-scroller
+  // position: sticky;            // does not work with ngx-virtual-scroller
   text-align: center;
   text-transform: capitalize;
   top: 0px;
@@ -87,7 +92,7 @@ select {
 .name {
   font-weight: bold;
   display: block;
-  margin: 10px 10px 6px;;
+  padding: 10px 10px 6px;
 }
 
 .text,

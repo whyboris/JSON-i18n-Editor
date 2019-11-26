@@ -35,40 +35,26 @@
   placeholder="search german"
 >
 
-<div class="scrolling-block">
+<!-- (vsUpdate)="changeHappened($event)" -->
+<virtual-scroller
+  #scroll
+  id="scrollDiv"
+  class="scrolling-block"
+  [enableUnequalChildrenSizes]="true"
+  [items]="mainObject | mySelectionPipe : selectedPage
+                      | mySearchPipe : filterText : true
+                      | mySearchPipe : filterText2 : false
+                      | myViewPipe : viewType
+                      | showOncePipe"
+>
 
-  <ng-container class="subkey" *ngFor="let item of mainObject | mySelectionPipe : selectedPage
-                                                              | mySearchPipe : filterText : true
-                                                              | mySearchPipe : filterText2 : false
-                                                              | myViewPipe : viewType
-                                                              | showOncePipe">
+  <app-row-component
+    *ngFor="let item of scroll.viewPortItems"
+    [item]="item"
+    class="full-row"
+  ></app-row-component>
 
-    <app-row-component [item]="item"></app-row-component>
-<!--
-    <div *ngIf="item.showCategory" class="category">
-      {{ item.category }}
-    </div>
-
-    <div class="name">
-      {{ item.name }}
-    </div>
-
-    <div class="text">
-      {{ item.text }}
-    </div>
-
-    <div class="translation">
-      {{ item.translation }}
-    </div>
-
-    <div class="editor" contenteditable="true">
-      {{ item.translation }}
-    </div>
-  -->
-
-  </ng-container>
-
-</div>
+</virtual-scroller>
 
 
 <button

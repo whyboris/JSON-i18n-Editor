@@ -73,18 +73,28 @@ export class AppComponent {
     return returnObject;
   }
 
-  changeView(lol: ViewType) {
+  changeView(lol: ViewType): void {
     console.log(lol);
     this.viewType = lol;
+    this.scrollToTop();
   }
 
-  changeCategory(lol: any) {
+  changeCategory(lol: any): void {
     this.selectedPage = lol;
+    this.scrollToTop();
+  }
+
+  scrollToTop(): void {
+    document.getElementById('scrollDiv').scrollTop = 0;
   }
 
   saveEverything() {
     this.savingInProgress = true;
     console.log('saving lol');
+  }
+
+  changeHappened(lol) {
+    console.log(lol[0]);
   }
 
 }
