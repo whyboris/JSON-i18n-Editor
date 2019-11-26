@@ -5,10 +5,17 @@
   </h1>
 </div>
 
+<select (change)="changeCategory($event.target.value)">
+  <option selected value="none">All website text</option>
+  <option *ngFor="let category of categories">{{ category }}</option>
+</select>
+
 <input [(ngModel)]="filterText" type="text">
 <input [(ngModel)]="filterText2" type="text">
 
-<span class="subkey" *ngFor="let item of mainObject | mySearchPipe : filterText : true | mySearchPipe : filterText2 : false">
+<span class="subkey" *ngFor="let item of mainObject | mySelectionPipe : selectedPage
+                                                    | mySearchPipe : filterText : true
+                                                    | mySearchPipe : filterText2 : false">
   <div class="category">
     {{ item.category }}
   </div>

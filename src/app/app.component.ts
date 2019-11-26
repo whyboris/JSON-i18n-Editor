@@ -23,9 +23,14 @@ export class AppComponent {
   filterText: string;
   filterText2: string;
 
+  categories: string[];
+
   mainObject: TranslationItem[];
 
+  selectedPage = 'none';
+
   constructor() {
+    this.categories = this.getKeys(en);
     this.mainObject = this.createMainObject(en);
   }
 
@@ -61,4 +66,11 @@ export class AppComponent {
     return returnObject;
   }
 
+  changeCategory(lol: any) {
+    this.selectedPage = lol;
+    console.log(lol);
+  }
+
+
 }
+
