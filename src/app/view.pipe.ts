@@ -24,7 +24,9 @@ export class ViewPipe implements PipeTransform {
         });
         break;
       case 'modified':
-        return data;
+        return data.filter((element) => {
+          return element.editedText !== element.translation;
+        });
         break;
     }
   }
