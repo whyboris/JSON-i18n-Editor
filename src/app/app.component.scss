@@ -72,57 +72,6 @@ select {
   min-height: 100px;
 }
 
-.category {
-  background-color: #80cf0f;
-  box-sizing: border-box;
-  color: white;
-  display: block;
-  font-family: sans-serif;
-  font-size: 22px;
-  font-weight: bold;
-  height: 36px;
-  margin: 20px 0 10px;
-  padding-top: 6px;
-  // position: -webkit-sticky;    // does not work with ngx-virtual-scroller
-  // position: sticky;            // does not work with ngx-virtual-scroller
-  text-align: center;
-  text-transform: capitalize;
-  top: 0px;
-
-  &:first-of-type {
-    margin-top: 0 !important;
-  }
-}
-
-.name {
-  font-weight: bold;
-  display: block;
-  padding: 10px 10px 6px;
-}
-
-.text,
-.translation,
-.editor {
-  box-sizing: border-box;
-  display: inline-block;
-  margin-bottom: 10px;
-  margin-left: 20px;
-  padding: 5px;
-  vertical-align: top;
-  width: 30%;
-}
-
-// .text {
-// }
-
-// .translation {
-// }
-
-.editor {
-  outline: none;
-  border: 1px solid #DDDDDD;
-}
-
 .button-save {
   background-color: #80cf0f;
   border-radius: 5px;

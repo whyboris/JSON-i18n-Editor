@@ -25,6 +25,8 @@ export class RowComponent implements AfterViewInit {
   editor1: Quill;
   editor2: Quill;
 
+  isModified = false;
+
   keyBindings: any = {
     tab: {
       key: 9, // tab
@@ -64,7 +66,9 @@ export class RowComponent implements AfterViewInit {
     this.editor2.setContents(newOps2);
 
     if (this.item.translation !== this.item.editedText) {
-      this.findDiff();
+      setTimeout(() => {
+        this.findDiff();
+      }, 1);
     }
   }
 
@@ -77,7 +81,7 @@ export class RowComponent implements AfterViewInit {
     const oldContent = this.editor1.getContents();
     const newContent = this.editor2.getContents();
 
-    const location: number = (this.editor2.getSelection() || {}).index;
+    const location: number = (this.editor2.getSelection() || { index: null }).index;
 
     const deleteOnly = this.helperService.find_deletions(oldContent, newContent);
     const addOnly = this.helperService.find_additions(oldContent, newContent);
@@ -85,10 +89,18 @@ export class RowComponent implements AfterViewInit {
     this.editor1.setContents(deleteOnly);
     this.editor2.setContents(addOnly);
 
-    this.editor2.setSelection(location, 0);
+    if (location) {
+      this.editor2.setSelection(location, 0);
+    }
 
     const newText: string = this.helperService.deltasToPlaintext(this.editor2.getContents());
     this.item.editedText = newText;
+
+    if (this.item.editedText !== this.item.translation) {
+      this.isModified = true;
+    } else {
+      this.isModified = false;
+    }
 
   }
 

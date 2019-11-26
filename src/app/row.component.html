@@ -12,4 +12,9 @@
 
 <div class="translation" #editor1></div>
 
-<div class="editor" (keyup)="findDiff()" #editor2></div>
+<div
+  #editor2
+  (keyup)="findDiff()"
+  class="editor"
+  [ngClass]="{ changed: isModified }"
+></div>
