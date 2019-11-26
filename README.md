@@ -39,6 +39,12 @@ _The value of all the keys at depth 1 must always be objects containing only key
 
 The structure of `en.json` is taken as authority on which keys must be present.
 
+## Recommended workflow
+
+1. Create the source-of-truth original `en.json` file.
+2. Use an automated system to translate all text into `de.json`
+3. Use **JSON i18n Editor** to fix the automated translateion
+
 ## Technology
 
 **JSON i18n Editor** is built with:
