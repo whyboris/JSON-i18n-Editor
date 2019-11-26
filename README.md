@@ -9,12 +9,17 @@ It *requires* two input `JSON` files (currently hardcoded as an example: `en.jso
 {
   "categoryName": {
     "keyName": "some text",
+    "anotherKey": "some text",
     ...
   },
   "anotherCategory" :{
     "keyName": "some text",
+    ...
   }
+  ...
 }
 ```
 The nesting cannot be shallower or deeper than this.
+
+The structure of `en.json` is taken as authority on which keys must be present.
 

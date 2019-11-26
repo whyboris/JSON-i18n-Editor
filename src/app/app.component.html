@@ -9,15 +9,15 @@
   </svg>
 </div>
 
-<select class="select-category" (change)="changeCategory($event.target.value)">
-  <option selected value="none">All website text</option>
+<select class="select-category" id="category-dropdown" (change)="changeCategory($event.target.value)">
+  <option selected value="none" [selected]="selectedPage === 'none'">All website text</option>
   <option *ngFor="let category of categories">{{ category }}</option>
 </select>
 
-<select class="select-view" (change)="changeView($event.target.value)">
-  <option selected value="everything">Showing everything</option>
-  <option value="untranslated">Showing untranslated</option>
-  <option value="modified">Showing modified</option>
+<select class="select-view" id="view-dropdown" (change)="changeView($event.target.value)">
+  <option value="everything" [selected]="viewType === 'everything'">Showing everything</option>
+  <option value="untranslated" [selected]="viewType === 'untranslated'">Showing untranslated</option>
+  <option value="modified" [selected]="viewType === 'modified'">Showing modified</option>
 </select>
 
 <input
@@ -56,6 +56,15 @@
   ></app-row-component>
 
 </virtual-scroller>
+
+
+<button
+  (click)="reviewNow()"
+  class="button-review"
+  type="button"
+>
+  REVIEW
+</button>
 
 
 <button

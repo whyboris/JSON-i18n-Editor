@@ -82,6 +82,13 @@ export class AppComponent {
     document.getElementById('scrollDiv').scrollTop = 0;
   }
 
+  reviewNow(): void {
+    this.selectedPage = 'none';
+    this.filterText = '';
+    this.filterText2 = '';
+    this.viewType = 'modified';
+  }
+
   /**
    * Create JSON
    */

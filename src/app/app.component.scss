@@ -69,6 +69,7 @@ select {
   min-height: 100px;
 }
 
+.button-review,
 .button-save {
   background-color: #80cf0f;
   border-radius: 5px;
@@ -100,4 +101,8 @@ select {
     transform: translateY(1px);
     transition: 100ms;
   }
+}
+
+.button-review {
+  left: 65%;
 }
