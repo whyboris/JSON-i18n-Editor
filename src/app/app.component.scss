@@ -5,6 +5,7 @@ select {
   height: 30px;
   outline: none;
   width: 150px;
+  box-sizing: border-box;
 }
 
 input {
@@ -20,16 +21,19 @@ input {
 
 select {
   position: fixed;
-  top: 83px;
+  // top: 83px;
+  left: 125px;
   z-index: 2;
 }
 
 .select-category {
-  left: 5px;
+  top: 10px;
+  // left: 5px;
 }
 
 .select-view {
-  right: 18px;
+  top: 44px;
+  // right: 18px;
 }
 
 .heading {
@@ -39,6 +43,7 @@ select {
 
 .scrolling-block {
   border-bottom: 1px solid #80cf0f;
+  border-top: 1px solid black;
   display: block;
   height: calc(100vh - 160px);
   overflow-y: scroll;
