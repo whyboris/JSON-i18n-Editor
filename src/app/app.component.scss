@@ -138,10 +138,24 @@ select {
   border-radius: 5px;
   border: 1px solid #80cf0f;
   display: none;
+  line-height: 22px;
   padding: 10px;
   position: absolute;
   right: 30px;
   top: 30px;
-  width: 300px;
+  width: 360px;
   z-index: 3;
+
+  ul {
+    padding-inline-start: 30px;
+
+    li {
+      margin-bottom: 6px;
+    }
+  }
+
+  pre {
+    display: inline-block;
+    margin: 0;
+  }
 }

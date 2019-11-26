@@ -10,7 +10,16 @@
 </div>
 
 <div class="help">?</div>
-<div class="help-text">Text like <pre>&#123;breakingLine&#125; or &#123;intl_something&#125;</pre> should not be removed</div>
+<div class="help-text">
+  <ul>
+    <li>
+      Text like <pre>&#123;breakingLine&#125;</pre> & <pre>&#123;intl_something&#125;</pre> should not be removed.
+    </li>
+    <li>
+      No text formatting should be added.
+    </li>
+  </ul>
+</div>
 
 <select
   (change)="changeCategory($event.target.value)"
