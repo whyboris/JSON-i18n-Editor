@@ -69,7 +69,6 @@ export class AppComponent {
 
   changeCategory(lol: any) {
     this.selectedPage = lol;
-    console.log(lol);
   }
 
 

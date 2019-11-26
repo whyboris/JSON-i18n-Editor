@@ -45,6 +45,7 @@ select {
   &:empty {
     &:after {
       content: "none found";
+      font-size: 20px;
       position: absolute;
       text-align: center;
       top: 50%;

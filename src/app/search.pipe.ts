@@ -13,8 +13,6 @@ export class MySearchPipe implements PipeTransform {
    */
   transform(data: TranslationItem[], searchText: string, original: boolean): any {
 
-    console.log(searchText);
-
     if (!searchText) {
       return data;
     }

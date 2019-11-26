@@ -13,8 +13,6 @@ export class PagePipe implements PipeTransform {
    */
   transform(data: TranslationItem[], pageSelect: string): any {
 
-    console.log(pageSelect);
-
     if (pageSelect === 'none') {
       return data;
     }
