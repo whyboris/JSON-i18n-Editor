@@ -59,3 +59,13 @@
   </ng-container>
 
 </div>
+
+
+<button
+  (click)="saveEverything()"
+  class="button-save"
+  [disabled]=savingInProgress
+  type="button"
+>
+  {{ savingInProgress ? 'saving' : 'SAVE' }}
+</button>

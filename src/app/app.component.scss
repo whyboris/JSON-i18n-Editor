@@ -109,3 +109,36 @@ select {
   outline: none;
   border: 1px solid #DDDDDD;
 }
+
+.button-save {
+  background-color: #80cf0f;
+  border-radius: 5px;
+  border: 0;
+  bottom: 20px;
+  box-shadow: 1px 2px 4px rgba(0,0,0,0.5);
+  color: white;
+  cursor: pointer;
+  outline: none;
+  padding: 12px 20px;
+  position: absolute;
+  right: 30px;
+  transition-property: background-color, box-shadow, color;
+  width: 100px;
+
+  &:hover {
+    background: #90Df1f;
+  }
+
+  &:disabled {
+    background-color: #DDDDDD;
+    box-shadow: none;
+    cursor: initial;
+    pointer-events: none;
+  }
+
+  &:active {
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+    transform: translateY(1px);
+    transition: 100ms;
+  }
+}

@@ -30,6 +30,8 @@ export class AppComponent {
 
   selectedPage = 'none';
 
+  savingInProgress = false;
+
   constructor() {
     this.categories = this.getKeys(en);
     this.mainObject = this.createMainObject(en);
@@ -71,6 +73,10 @@ export class AppComponent {
     this.selectedPage = lol;
   }
 
+  saveEverything() {
+    this.savingInProgress = true;
+    console.log('saving lol');
+  }
 
 }
 
