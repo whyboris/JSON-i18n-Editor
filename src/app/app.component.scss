@@ -14,22 +14,23 @@
 }
 
 .category {
+  background: white;
+  display: block;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 20px 0 10px;
+  background-color: #80cf0f;
   position: -webkit-sticky;
   position: sticky;
-  top: 0px;
-  background: white;
-  font-size: 30px;
   text-align: center;
-  margin: 20px 0 6px;
-  font-weight: bold;
-  display: block;
-  margin-left: 20px;
+  top: 0px;
 }
 
 .name {
   font-weight: bold;
   display: block;
-  margin-left: 40px;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .text {
