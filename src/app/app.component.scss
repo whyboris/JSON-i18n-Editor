@@ -114,10 +114,13 @@ select {
 .help {
   border-radius: 50%;
   border: 1px solid #80cf0f;
+  box-shadow: 0px 1px 5px rgba(0,0,0,0.2);
   box-sizing: border-box;
   cursor: default;
   display: block;
+  font-family: sans-serif;
   font-size: 12px;
+  font-weight: bold;
   height: 20px;
   padding-top: 2px;
   position: absolute;
@@ -137,6 +140,7 @@ select {
   background-color: white;
   border-radius: 5px;
   border: 1px solid #80cf0f;
+  box-shadow: 0 10px 10px rgba(0,0,0,0.2);
   display: none;
   line-height: 22px;
   padding: 10px;
