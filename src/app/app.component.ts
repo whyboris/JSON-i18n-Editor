@@ -24,30 +24,38 @@ export class AppComponent implements OnInit {
   context: string[];
   filterText = '';
   filterText2 = '';
+  loading = true;
   mainObject: TranslationItem[] = [];
+  reviewedOnce: boolean;
   savingInProgress = false;
   selectedPage = 'none';
   viewType: ViewType = 'everything';
-  reviewedOnce: boolean;
 
-  en: JSON;
-  de: JSON;
-
-  loading = true;
+  en: any;
+  de: any;
 
   constructor(
     public fileService: FileService,
   ) { }
 
   ngOnInit(): void {
-    this.en = this.fileService.get_en();
-    this.de = this.fileService.get_de();
+    this.getAllData();
+  }
 
-    setTimeout(() => {
-      this.categories = this.getKeys(this.en);
-      this.mainObject = this.createMainObject(this.en);
-      this.loading = false;
-    }, 2000);
+  /**
+   * Get all data from fileService
+   * only start app when all data is received
+   */
+  async getAllData() {
+
+    [this.en, this.de] = await Promise.all([
+      this.fileService.get_en(),
+      this.fileService.get_de()
+    ]);
+
+    this.categories = this.getKeys(this.en);
+    this.mainObject = this.createMainObject(this.en);
+    this.loading = false;
   }
 
   /**
