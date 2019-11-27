@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { LoginInterface } from './app.component';
+import { LoginInterface, AllowedLanguage } from './app.component';
 
 const en: JSON = require('../assets/en.json');
 const de: JSON = require('../assets/de.json');
@@ -17,37 +17,43 @@ export class FileService {
     private http: HttpClient,
   ) { }
 
-  public get_en() {
+  /**
+   * Fetch source language from server
+   */
+  public getSourceLanguage(language: AllowedLanguage) {
 
     const headers = new HttpHeaders()
       .set('secret', 'abcde')
-      .set('language', 'en');
+      .set('language', language);
 
     return new Promise(resolve => {
 
-      resolve(en);
+      // resolve(en);
 
-      // this.http.get('http://temp.yboris.com/hif/get_latest.php', { headers })
-      //   .subscribe((data) => {
-      //     resolve(data);
-      //   });
+      this.http.get('http://temp.yboris.com/hif/get_latest.php', { headers })
+        .subscribe((data) => {
+          resolve(data);
+        });
     });
   }
 
-  public get_de() {
+  /**
+   * Fetch language to translate from server
+   */
+  public getLanguageToTranslate(language: AllowedLanguage) {
 
     const headers = new HttpHeaders()
       .set('secret', 'abcde')
-      .set('language', 'de');
+      .set('language', language);
 
     return new Promise(resolve => {
 
-      resolve(de);
+      // resolve(de);
 
-      // this.http.get('http://temp.yboris.com/hif/get_latest.php', { headers })
-      //   .subscribe((data) => {
-      //     resolve(data);
-      //   });
+      this.http.get('http://temp.yboris.com/hif/get_latest.php', { headers })
+        .subscribe((data) => {
+          resolve(data);
+        });
     });
   }
 

@@ -41,7 +41,7 @@
   (keyup.esc)="filterText = ''"
   [ngClass]="{ 'input-changed': filterText !== ''}"
   type="text"
-  placeholder="search english"
+  placeholder="Search {{ languageMap.get('en') }}"
 >
 
 <input
@@ -50,7 +50,7 @@
   class="search-german"
   [ngClass]="{ 'input-changed': filterText2 !== ''}"
   type="text"
-  placeholder="search german"
+  placeholder="Search {{ languageMap.get(this.login.language) }}"
 >
 
 <virtual-scroller

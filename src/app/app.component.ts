@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { FileService, ServerResponse } from './file.service';
 
-type AllowedLanguage = 'en' | 'de' | 'it';
+export type AllowedLanguage = 'en' | 'de' | 'it';
 
 export interface LoginInterface {
   name: string;
@@ -28,6 +28,12 @@ export type ViewType = 'everything' | 'modified' | 'untranslated';
 })
 export class AppComponent implements OnInit {
 
+  languageMap: Map<AllowedLanguage, string> = new Map([
+    ['en', 'English'],
+    ['it', 'Italian'],
+    ['de', 'German'],
+  ]);
+
   categories: string[];
   context: string[];
   filterText = '';
@@ -48,8 +54,8 @@ export class AppComponent implements OnInit {
     language: 'de'
   };
 
-  en: any;
-  de: any;
+  languageOriginal: any;
+  languageToTranslate: any;
 
   constructor(
     public fileService: FileService,
@@ -65,13 +71,13 @@ export class AppComponent implements OnInit {
    */
   async getAllData() {
 
-    [this.en, this.de] = await Promise.all([
-      this.fileService.get_en(),
-      this.fileService.get_de()
+    [this.languageOriginal, this.languageToTranslate] = await Promise.all([
+      this.fileService.getSourceLanguage('en'),
+      this.fileService.getLanguageToTranslate(this.login.language)
     ]);
 
-    this.categories = this.getKeys(this.en);
-    this.mainObject = this.createMainObject(this.en);
+    this.categories = this.getKeys(this.languageOriginal);
+    this.mainObject = this.createMainObject(this.languageOriginal);
     this.loading = false;
   }
 
@@ -99,8 +105,8 @@ export class AppComponent implements OnInit {
           category,
           name,
           text: data[category][name],
-          translation: this.de[category][name] || '',
-          editedText: this.de[category][name] || '',
+          translation: this.languageToTranslate[category][name] || '',
+          editedText: this.languageToTranslate[category][name] || '',
         });
       });
     });
