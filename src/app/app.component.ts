@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
-const en: any = require('../assets/en.json');
-const de: any = require('../assets/de.json');
+import { FileService } from './file.service';
 
 export interface TranslationItem {
   category: string;
@@ -31,7 +30,11 @@ export class AppComponent {
   viewType: ViewType = 'everything';
   reviewedOnce: boolean;
 
-  constructor() {
+  constructor(
+    public fileService: FileService,
+  ) {
+    const en = this.fileService.get_en();
+
     this.categories = this.getKeys(en);
     this.mainObject = this.createMainObject(en);
   }
@@ -39,14 +42,16 @@ export class AppComponent {
   /**
    * Get keys from any object
    */
-  getKeys(anyObj): string[] {
+  getKeys(anyObj: JSON): string[] {
     return Object.keys(anyObj);
   }
 
   /**
    * Flatten out the JSON into an easy-to use TranslationItem array
    */
-  createMainObject(data): TranslationItem[] {
+  createMainObject(data: JSON): TranslationItem[] {
+
+    const de = this.fileService.get_de();
 
     const categories: string[] = this.getKeys(data);
 

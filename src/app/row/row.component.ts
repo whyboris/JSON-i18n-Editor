@@ -12,8 +12,7 @@ import { defaultOptions } from '../quill/settings';
 @Component({
   selector: 'app-row-component',
   templateUrl: './row.component.html',
-  styleUrls: ['../app.component.scss',
-              './row.component.scss']
+  styleUrls: ['./row.component.scss']
 })
 export class RowComponent implements AfterViewInit {
 
