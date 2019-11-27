@@ -1,18 +1,18 @@
 import { Component, Input, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 
 import Quill from 'quill';
-import * as QuillRef from './quill';
+import * as QuillRef from '../quill/quill';
 
-import { HelperService } from './helper.service';
+import { HelperService } from '../quill/quill.service';
 
-import { TranslationItem } from './app.component';
+import { TranslationItem } from '../app.component';
 
-import { defaultOptions } from './settings';
+import { defaultOptions } from '../quill/settings';
 
 @Component({
   selector: 'app-row-component',
   templateUrl: './row.component.html',
-  styleUrls: ['./app.component.scss',
+  styleUrls: ['../app.component.scss',
               './row.component.scss']
 })
 export class RowComponent implements AfterViewInit {

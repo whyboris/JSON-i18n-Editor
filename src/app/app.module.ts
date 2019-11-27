@@ -4,15 +4,15 @@ import { FormsModule } from '@angular/forms';
 
 import { VirtualScrollerModule } from 'ngx-virtual-scroller';
 
-import { HelperService } from './helper.service';
+import { HelperService } from './quill/quill.service';
 
 import { AppComponent } from './app.component';
-import { RowComponent } from './row.component';
+import { RowComponent } from './row/row.component';
 
-import { MySearchPipe } from './search.pipe';
-import { PagePipe } from './page.pipe';
-import { ShowOncePipe } from './show-once.pipe';
-import { ViewPipe } from './view.pipe';
+import { MySearchPipe } from './pipes/search.pipe';
+import { PagePipe } from './pipes/page.pipe';
+import { ShowOncePipe } from './pipes/show-once.pipe';
+import { ViewPipe } from './pipes/view.pipe';
 
 @NgModule({
   declarations: [

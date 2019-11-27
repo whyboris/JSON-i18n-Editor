@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { TranslationItem } from './app.component';
+import { TranslationItem } from '../app.component';
 
 @Pipe({
   name: 'mySelectionPipe'

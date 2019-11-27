@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { TranslationItem, ViewType } from './app.component';
+import { TranslationItem, ViewType } from '../app.component';
 
 @Pipe({
   name: 'myViewPipe'
