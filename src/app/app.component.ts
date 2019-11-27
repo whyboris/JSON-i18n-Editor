@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
   filterText = '';
   filterText2 = '';
   loading = true;
+  loggedIn: false;
   mainObject: TranslationItem[] = [];
   reviewedOnce: boolean;
   savingInProgress = false;

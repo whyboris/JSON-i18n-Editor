@@ -69,7 +69,8 @@ select {
 }
 
 .button-review,
-.button-save {
+.button-save,
+.button-login {
   background-color: #80cf0f;
   border-radius: 5px;
   border: 0;
@@ -169,4 +170,50 @@ select {
   text-align: center;
   top: calc(50vh - 20px);
   transform: translateX(-50%);
+}
+
+.overlay {
+  background: #f1f1f1;
+  height: 100vw;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 2;
+
+  .login {
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #80cf0f;
+    box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.2);
+    height: 290px;
+    left: 50vw;
+    padding: 20px;
+    position: absolute;
+    top: 50vh;
+    transform: translate(-50%, -50%);
+    width: 200px;
+
+    input,
+    select {
+      display: block;
+      margin: 2px 0 5px;
+      position: initial;
+      width: 100%;
+    }
+
+    .button-login {
+      height: 30px;
+      margin-top: 20px;
+      padding: 8px;
+      position: initial;
+      width: 100%;
+    }
+
+    .label {
+      color: #666666;
+      font-family: sans-serif;
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+  }
 }
