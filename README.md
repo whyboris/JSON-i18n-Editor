@@ -2,7 +2,9 @@
 
 **JSON i18n Editor** helps you translate your JSON language files. It's an interface for you or your team to add and edit translations for your application or website.
 
-<img width="800" alt="JSON-i18n-Editor" src="https://user-images.githubusercontent.com/17264277/69726280-31ae7880-10ee-11ea-886a-e57c0c8106bc.png">
+<p align="center">
+  <img width="800" alt="JSON-i18n-Editor" src="https://user-images.githubusercontent.com/17264277/69726280-31ae7880-10ee-11ea-886a-e57c0c8106bc.png">
+</p>
 
 ## Features
 
