@@ -97,8 +97,7 @@
 
 <div class="overlay" *ngIf="!isLoggedIn">
 
-
-  <div class="login">
+  <div class="login" [ngClass]="{ 'login-error': loginError }">
 
     <img src="assets/logo.svg">
 
@@ -127,7 +126,7 @@
     <button
       (click)=tryLogin()
       class="button-login"
-      [disabled]="!login.name || !login.password"
+      [disabled]="!login.name || !login.password || waitingForServer"
     >
       LOGIN
     </button>

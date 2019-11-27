@@ -5,7 +5,7 @@ import { LoginInterface } from './app.component';
 const en: JSON = require('../assets/en.json');
 const de: JSON = require('../assets/de.json');
 
-interface ServerResponse {
+export interface ServerResponse {
   success: boolean;
   error?: number;
 }
@@ -57,15 +57,7 @@ export class FileService {
       .set('name', creds.name)
       .set('password', creds.password);
 
-    return new Promise<boolean>(resolve => {
-
-      this.http.get('http://temp.yboris.com/hif/login.php', { headers })
-        .subscribe((data: ServerResponse) => {
-          console.log('data');
-          console.log(data);
-          resolve(data.success);
-        });
-    });
+    return this.http.get('http://temp.yboris.com/hif/login.php', { headers });
   }
 
 }

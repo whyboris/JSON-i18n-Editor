@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FileService } from './file.service';
+import { FileService, ServerResponse } from './file.service';
 
 type AllowedLanguage = 'en' | 'de' | 'it';
 
@@ -32,13 +32,15 @@ export class AppComponent implements OnInit {
   context: string[];
   filterText = '';
   filterText2 = '';
-  loading = true;
   isLoggedIn = false;
+  loading = true;
+  loginError = false;
   mainObject: TranslationItem[] = [];
   reviewedOnce: boolean;
   savingInProgress = false;
   selectedPage = 'none';
   viewType: ViewType = 'everything';
+  waitingForServer = false;
 
   login: LoginInterface = {
     name: '',
@@ -149,10 +151,23 @@ export class AppComponent implements OnInit {
     console.log(toSave);
   }
 
-  async tryLogin() {
+  tryLogin() {
     if (this.login.name && this.login.password) {
+      this.waitingForServer = true;
       console.log(this.login);
-      this.isLoggedIn = await this.fileService.login(this.login);
+      this.fileService.login(this.login).subscribe((data: ServerResponse) => {
+        console.log('data');
+        console.log(data);
+        this.isLoggedIn = data.success;
+        if (!data.success) {
+          this.login.password = '';
+          this.loginError = true;
+          setTimeout(() => {
+            this.loginError = false;
+          }, 1000);
+        }
+        this.waitingForServer = false;
+      });
     }
   }
 

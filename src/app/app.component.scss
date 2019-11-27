@@ -186,11 +186,10 @@ select {
     border: 1px solid #80cf0f;
     box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.2);
     height: 290px;
-    left: 50vw;
+    left: calc(50vw - 100px);
     padding: 20px;
     position: absolute;
-    top: 50vh;
-    transform: translate(-50%, -50%);
+    top: calc(50vh - 145px);
     width: 200px;
 
     input,
@@ -215,5 +214,27 @@ select {
       font-size: 12px;
       margin-bottom: 4px;
     }
+  }
+}
+
+.login-error {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
   }
 }
