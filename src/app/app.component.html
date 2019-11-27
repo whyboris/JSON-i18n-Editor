@@ -103,19 +103,30 @@
 
     <br><br>
 
-    <span class="label">
-      name:
+    <span class="label" [ngClass]="{ hidden: !login.name }">
+      Name:
     </span>
-    <input type="text" [(ngModel)]="login.name" (keyup.enter)=tryLogin()>
+    <input
+      type="text"
+      placeholder="Name"
+      [(ngModel)]="login.name"
+      (keyup.enter)=tryLogin()
+    >
 
-    <span class="label">
-      password:
+    <span class="label" [ngClass]="{ hidden: !login.password }">
+      Password:
     </span>
-    <input type="password" [(ngModel)]="login.password" (keyup.enter)=tryLogin()>
+    <input
+      class="input-password"
+      type="password"
+      placeholder="Password"
+      [(ngModel)]="login.password"
+      (keyup.enter)=tryLogin()
+    >
 
 
-    <span class="label">
-      language to edit
+    <span class="label language">
+      Language to edit:
     </span>
     <select (change)="changeLanguage($event.target.value)">
       <option value="en">English</option>

@@ -201,6 +201,15 @@ select {
       width: 100%;
     }
 
+    select {
+      float: right;
+      width: 100px;
+    }
+
+    .input-password {
+      margin-bottom: 24px;
+    }
+
     .button-login {
       height: 30px;
       margin-top: 20px;
@@ -210,10 +219,21 @@ select {
     }
 
     .label {
-      color: #666666;
+      color: #999999;
       font-family: sans-serif;
       font-size: 12px;
       margin-bottom: 4px;
+      transition-duration: 500ms;
+      transition-property: color;
+    }
+
+    .language {
+      float: left;
+      margin-top: 10px;
+    }
+
+    .hidden {
+      color: white;
     }
   }
 }
