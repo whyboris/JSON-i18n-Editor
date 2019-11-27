@@ -8,15 +8,11 @@ screenshot will be here soon
 
 ## Features
 
-**JSON i18n Editor** shows three columns: original language, last-saved translation (if any), and editable text box.
-
-When you change the text in the editable box, you see the _diff_: any text you remove from the last-saved translation is highlighted in red and any text you add is highlighted in green.
-
-Original language and last-saved translation are independently searchable.
-
-You can view one category at a time; view only untranslated fields, or only those you currently modified.
-
-Clicking `REVIEW` shows only the text you have edited for a quick review.
+- Shows three columns: original language, last-saved translation (if any), and editable text box.
+- When you change the text in the editable box, you see the _diff_: any text you remove from the last-saved translation is highlighted in red and any text you add is highlighted in green.
+- Original language and last-saved translation are independently searchable.
+- You can view one category at a time; view only untranslated fields, or only those you currently modified.
+- Clicking `REVIEW` shows only the text you have edited for a quick review.
 
 ## How to use
 
@@ -31,7 +27,7 @@ It *requires* two input `JSON` files (currently hardcoded as an example: `en.jso
   "anotherCategory" :{
     "keyName": "some text",
     ...
-  }
+  },
   ...
 }
 ```
@@ -41,7 +37,7 @@ The structure of `en.json` is taken as authority on which keys must be present.
 
 ## Recommended workflow
 
-1. Create the source-of-truth original `en.json` file.
+1. Create the source-of-truth original `en.json` file
 2. Use an [automated system](https://www.npmjs.com/package/translate-json-object) to translate all text into `de.json`
 3. Use **JSON i18n Editor** to fix the automated translateion
 
@@ -55,4 +51,4 @@ The structure of `en.json` is taken as authority on which keys must be present.
 
 ## Credits
 
-Created for and used by [Health Impact Fund](https://healthimpactfund.org/).
+Created for and used by [Health Impact Fund](https://healthimpactfund.org/)
