@@ -22,36 +22,13 @@ export class FileService {
   /**
    * Fetch source language from server
    */
-  public getSourceLanguage(language: AllowedLanguage) {
+  public getLanguageJSON(language: AllowedLanguage) {
 
     const headers = new HttpHeaders()
       .set('secret', 'abcde')
       .set('language', language);
 
     return new Promise(resolve => {
-
-      // resolve(en);
-
-      this.http.get(this.API_URL + 'get_latest.php', { headers })
-        .subscribe((data) => {
-          resolve(data);
-        });
-    });
-  }
-
-  /**
-   * Fetch language to translate from server
-   */
-  public getLanguageToTranslate(language: AllowedLanguage) {
-
-    const headers = new HttpHeaders()
-      .set('secret', 'abcde')
-      .set('language', language);
-
-    return new Promise(resolve => {
-
-      // resolve(de);
-
       this.http.get(this.API_URL + 'get_latest.php', { headers })
         .subscribe((data) => {
           resolve(data);

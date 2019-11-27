@@ -72,8 +72,8 @@ export class AppComponent implements OnInit {
   async getAllData() {
 
     [this.languageOriginal, this.languageToTranslate] = await Promise.all([
-      this.fileService.getSourceLanguage('en'),
-      this.fileService.getLanguageToTranslate(this.login.language)
+      this.fileService.getLanguageJSON('en'),
+      this.fileService.getLanguageJSON(this.login.language)
     ]);
 
     this.categories = this.getKeys(this.languageOriginal);

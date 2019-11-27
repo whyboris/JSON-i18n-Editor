@@ -174,7 +174,7 @@ select {
 
 .overlay {
   background: #f1f1f1;
-  height: 100vw;
+  height: 100vh;
   position: fixed;
   top: 0;
   width: 100vw;
@@ -185,12 +185,13 @@ select {
     border-radius: 10px;
     border: 1px solid #80cf0f;
     box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.2);
-    height: 290px;
-    left: calc(50vw - 100px);
+    height: 330px;
+    left: calc(50vw - 120px);
     padding: 20px;
     position: absolute;
-    top: calc(50vh - 145px);
-    width: 200px;
+    top: calc(50vh - 165px);
+    box-sizing: border-box;
+    width: 240px;
 
     input,
     select {
