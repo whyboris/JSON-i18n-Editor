@@ -13,6 +13,8 @@ export interface ServerResponse {
 @Injectable()
 export class FileService {
 
+  API_URL = 'http://temp.yboris.com/hif/';
+
   constructor(
     private http: HttpClient,
   ) { }
@@ -30,7 +32,7 @@ export class FileService {
 
       // resolve(en);
 
-      this.http.get('http://temp.yboris.com/hif/get_latest.php', { headers })
+      this.http.get(this.API_URL + 'get_latest.php', { headers })
         .subscribe((data) => {
           resolve(data);
         });
@@ -50,7 +52,7 @@ export class FileService {
 
       // resolve(de);
 
-      this.http.get('http://temp.yboris.com/hif/get_latest.php', { headers })
+      this.http.get(this.API_URL + 'get_latest.php', { headers })
         .subscribe((data) => {
           resolve(data);
         });
@@ -63,7 +65,7 @@ export class FileService {
       .set('name', creds.name)
       .set('password', creds.password);
 
-    return this.http.get('http://temp.yboris.com/hif/login.php', { headers });
+    return this.http.get(this.API_URL + 'login.php', { headers });
   }
 
 }
