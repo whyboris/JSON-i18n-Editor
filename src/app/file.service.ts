@@ -5,6 +5,11 @@ import { LoginInterface } from './app.component';
 const en: JSON = require('../assets/en.json');
 const de: JSON = require('../assets/de.json');
 
+interface ServerResponse {
+  success: boolean;
+  error?: number;
+}
+
 @Injectable()
 export class FileService {
 
@@ -46,11 +51,21 @@ export class FileService {
     });
   }
 
-  public login(creds: LoginInterface): boolean {
+  public login(creds: LoginInterface) {
 
-    // do a call first
+    const headers = new HttpHeaders()
+      .set('name', creds.name)
+      .set('password', creds.password);
 
-    return true;
+    return new Promise<boolean>(resolve => {
+
+      this.http.get('http://temp.yboris.com/hif/login.php', { headers })
+        .subscribe((data: ServerResponse) => {
+          console.log('data');
+          console.log(data);
+          resolve(data.success);
+        });
+    });
   }
 
 }

@@ -149,9 +149,11 @@ export class AppComponent implements OnInit {
     console.log(toSave);
   }
 
-  tryLogin() {
-    console.log(this.login);
-    this.isLoggedIn = this.fileService.login(this.login);
+  async tryLogin() {
+    if (this.login.name && this.login.password) {
+      console.log(this.login);
+      this.isLoggedIn = await this.fileService.login(this.login);
+    }
   }
 
 }

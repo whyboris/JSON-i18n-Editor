@@ -107,12 +107,12 @@
     <span class="label">
       name:
     </span>
-    <input type="text" [(ngModel)]="login.name">
+    <input type="text" [(ngModel)]="login.name" (keyup.enter)=tryLogin()>
 
     <span class="label">
       password:
     </span>
-    <input type="password" [(ngModel)]="login.password">
+    <input type="password" [(ngModel)]="login.password" (keyup.enter)=tryLogin()>
 
 
     <span class="label">
