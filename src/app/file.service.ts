@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { LoginInterface } from './app.component';
 
 const en: JSON = require('../assets/en.json');
 const de: JSON = require('../assets/de.json');
@@ -43,6 +44,13 @@ export class FileService {
       //     resolve(data);
       //   });
     });
+  }
+
+  public login(creds: LoginInterface): boolean {
+
+    // do a call first
+
+    return true;
   }
 
 }

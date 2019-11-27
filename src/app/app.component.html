@@ -95,7 +95,7 @@
   LOADING ...
 </div>
 
-<div class="overlay" *ngIf="!loggedIn">
+<div class="overlay" *ngIf="!isLoggedIn">
 
 
   <div class="login">
@@ -107,25 +107,30 @@
     <span class="label">
       name:
     </span>
-    <input type="text">
-
+    <input type="text" [(ngModel)]="login.name">
 
     <span class="label">
       password:
     </span>
-    <input type="password">
+    <input type="password" [(ngModel)]="login.password">
 
 
     <span class="label">
       language to edit
     </span>
-    <select>
+    <select (change)="changeLanguage($event.target.value)">
       <option value="en">English</option>
       <option value="de" selected>German</option>
       <option value="it">Italian</option>
     </select>
 
-    <button class="button-login">LOGIN</button>
+    <button
+      (click)=tryLogin()
+      class="button-login"
+      [disabled]="!login.name || !login.password"
+    >
+      LOGIN
+    </button>
 
   </div>
 </div>

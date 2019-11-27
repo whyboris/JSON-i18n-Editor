@@ -2,6 +2,14 @@ import { Component, OnInit } from '@angular/core';
 
 import { FileService } from './file.service';
 
+type AllowedLanguage = 'en' | 'de' | 'it';
+
+export interface LoginInterface {
+  name: string;
+  password: string;
+  language: AllowedLanguage;
+}
+
 export interface TranslationItem {
   category: string;
   name: string;
@@ -25,12 +33,18 @@ export class AppComponent implements OnInit {
   filterText = '';
   filterText2 = '';
   loading = true;
-  loggedIn: false;
+  isLoggedIn = false;
   mainObject: TranslationItem[] = [];
   reviewedOnce: boolean;
   savingInProgress = false;
   selectedPage = 'none';
   viewType: ViewType = 'everything';
+
+  login: LoginInterface = {
+    name: '',
+    password: '',
+    language: 'de'
+  };
 
   en: any;
   de: any;
@@ -102,6 +116,10 @@ export class AppComponent implements OnInit {
     this.scrollToTop();
   }
 
+  changeLanguage(lol: AllowedLanguage): void {
+    this.login.language = lol;
+  }
+
   scrollToTop(): void {
     document.getElementById('scrollDiv').scrollTop = 0;
   }
@@ -129,6 +147,11 @@ export class AppComponent implements OnInit {
       toSave[element.category][element.name] = element.editedText.replace('\n', '');
     });
     console.log(toSave);
+  }
+
+  tryLogin() {
+    console.log(this.login);
+    this.isLoggedIn = this.fileService.login(this.login);
   }
 
 }
