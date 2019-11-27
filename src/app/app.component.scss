@@ -158,3 +158,15 @@ select {
     margin: 0;
   }
 }
+
+.loading {
+  color: #80cf0f;
+  display: block;
+  font-family: sans-serif;
+  font-size: 30px;
+  left: 50vw;
+  position: fixed;
+  text-align: center;
+  top: calc(50vh - 20px);
+  transform: translateX(-50%);
+}

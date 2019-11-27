@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { FileService } from './file.service';
 
@@ -18,25 +18,36 @@ export type ViewType = 'everything' | 'modified' | 'untranslated';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   categories: string[];
   context: string[];
   filterText = '';
   filterText2 = '';
-  mainObject: TranslationItem[];
+  mainObject: TranslationItem[] = [];
   savingInProgress = false;
   selectedPage = 'none';
   viewType: ViewType = 'everything';
   reviewedOnce: boolean;
 
+  en: JSON;
+  de: JSON;
+
+  loading = true;
+
   constructor(
     public fileService: FileService,
-  ) {
-    const en = this.fileService.get_en();
+  ) { }
 
-    this.categories = this.getKeys(en);
-    this.mainObject = this.createMainObject(en);
+  ngOnInit(): void {
+    this.en = this.fileService.get_en();
+    this.de = this.fileService.get_de();
+
+    setTimeout(() => {
+      this.categories = this.getKeys(this.en);
+      this.mainObject = this.createMainObject(this.en);
+      this.loading = false;
+    }, 2000);
   }
 
   /**
@@ -51,8 +62,6 @@ export class AppComponent {
    */
   createMainObject(data: JSON): TranslationItem[] {
 
-    const de = this.fileService.get_de();
-
     const categories: string[] = this.getKeys(data);
 
     const returnObject = [];
@@ -65,8 +74,8 @@ export class AppComponent {
           category,
           name,
           text: data[category][name],
-          translation: de[category][name] || '',
-          editedText: de[category][name] || '',
+          translation: this.de[category][name] || '',
+          editedText: this.de[category][name] || '',
         });
       });
     });
