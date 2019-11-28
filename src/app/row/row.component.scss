@@ -58,7 +58,7 @@
   padding: 10px 10px 6px;
 }
 
-.text,
+.text-box,
 .translation,
 .editor {
   border: 1px solid white;
@@ -70,13 +70,14 @@
   flex: 1;
 }
 
-.text,
+.text-box,
 .translation {
   color: #333333;
   cursor: default;
 }
 
-.text {
+.original-text {
+  display: block;
   padding: 10px;
 }
 

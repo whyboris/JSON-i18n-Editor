@@ -100,7 +100,7 @@ select {
 }
 
 .button-save {
-  right: 20px;
+  right: 10px;
 }
 
 .button-hide-column {
@@ -179,11 +179,12 @@ select {
   margin-left: 20px;
   margin-right: 20px;
   position: absolute;
-  width: calc(100vw - 40px);
+  width: calc(100vw - 55px);
 
   .column {
     flex: 1;
     position: relative;
+    padding: 10px;
 
     input {
       position: absolute;

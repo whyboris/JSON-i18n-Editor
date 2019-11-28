@@ -10,9 +10,11 @@
 
   <div
     *ngIf="!hideSourceLanguage"
-    class="text"
+    class="text-box"
   >
-    {{ item.text }}
+    <span class="original-text">
+      {{ item.text }}
+    </span>
   </div>
 
   <div
