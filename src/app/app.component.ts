@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { FileService, ServerResponse } from './file.service';
 
@@ -27,7 +27,7 @@ export type ViewType = 'everything' | 'modified' | 'untranslated';
   styleUrls: ['./app.component.scss',
               './login.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
   languageMap: Map<AllowedLanguage, string> = new Map([
     ['en', 'English'],
@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
   filterText = '';
   filterText2 = '';
   hideSourceLanguage: boolean;
-  isLoggedIn = true; // Set to `true` to skip login when needed;
+  isLoggedIn = false; // Set to `true` to skip login when needed;
   loading = true;
   loginError = false;
   mainObject: TranslationItem[] = [];
@@ -64,10 +64,6 @@ export class AppComponent implements OnInit {
   constructor(
     public fileService: FileService,
   ) { }
-
-  ngOnInit(): void {
-    this.getAllData();
-  }
 
   /**
    * Get all data from fileService
@@ -169,10 +165,7 @@ export class AppComponent implements OnInit {
   tryLogin() {
     if (this.login.name && this.login.password) {
       this.waitingForServer = true;
-      console.log(this.login);
       this.fileService.login(this.login).subscribe((data: ServerResponse) => {
-        console.log('data');
-        console.log(data);
         this.isLoggedIn = data.success;
         if (!data.success) {
           this.login.password = '';
@@ -180,6 +173,8 @@ export class AppComponent implements OnInit {
           setTimeout(() => {
             this.loginError = false;
           }, 1000);
+        } else {
+          this.getAllData();
         }
         this.waitingForServer = false;
       });

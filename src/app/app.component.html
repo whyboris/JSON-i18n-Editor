@@ -147,6 +147,7 @@
       placeholder="Name"
       [(ngModel)]="login.name"
       (keyup.enter)=tryLogin()
+      autofocus
     >
 
     <span class="label" [ngClass]="{ hidden: !login.password }">
