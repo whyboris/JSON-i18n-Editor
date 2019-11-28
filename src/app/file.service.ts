@@ -24,6 +24,9 @@ export class FileService {
    */
   public getLanguageJSON(language: AllowedLanguage) {
 
+    // for testing
+    return language === 'en' ? en : de;
+
     const headers = new HttpHeaders()
       .set('secret', 'abcde')
       .set('language', language);

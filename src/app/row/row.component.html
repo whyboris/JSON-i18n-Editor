@@ -6,15 +6,25 @@
   {{ item.name }}
 </div>
 
-<div class="text">
-  {{ item.text }}
+<div class="all-i18n">
+
+  <div
+    *ngIf="!hideSourceLanguage"
+    class="text"
+  >
+    {{ item.text }}
+  </div>
+
+  <div
+    #editor1
+    class="translation"
+  ></div>
+
+  <div
+    #editor2
+    (keyup)="findDiff()"
+    class="editor"
+    [ngClass]="{ changed: isModified }"
+  ></div>
+
 </div>
-
-<div class="translation" #editor1></div>
-
-<div
-  #editor2
-  (keyup)="findDiff()"
-  class="editor"
-  [ngClass]="{ changed: isModified }"
-></div>

@@ -24,7 +24,8 @@ export type ViewType = 'everything' | 'modified' | 'untranslated';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss',
+              './login.scss']
 })
 export class AppComponent implements OnInit {
 
@@ -34,11 +35,14 @@ export class AppComponent implements OnInit {
     ['de', 'German'],
   ]);
 
+  SOURCE_LANGUAGE: AllowedLanguage = 'en';
+
   categories: string[];
   context: string[];
   filterText = '';
   filterText2 = '';
-  isLoggedIn = false;
+  hideSourceLanguage: boolean;
+  isLoggedIn = true; // Set to `true` to skip login when needed;
   loading = true;
   loginError = false;
   mainObject: TranslationItem[] = [];
@@ -72,7 +76,7 @@ export class AppComponent implements OnInit {
   async getAllData() {
 
     [this.languageOriginal, this.languageToTranslate] = await Promise.all([
-      this.fileService.getLanguageJSON('en'),
+      this.fileService.getLanguageJSON(this.SOURCE_LANGUAGE),
       this.fileService.getLanguageJSON(this.login.language)
     ]);
 
@@ -112,6 +116,11 @@ export class AppComponent implements OnInit {
     });
 
     return returnObject;
+  }
+
+  toggleHideColumn(): void {
+    this.hideSourceLanguage = !this.hideSourceLanguage;
+    this.filterText = '';
   }
 
   changeView(lol: ViewType): void {

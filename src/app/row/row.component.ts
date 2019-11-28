@@ -17,6 +17,7 @@ import { defaultOptions } from '../quill/settings';
 export class RowComponent implements AfterViewInit {
 
   @Input() item: TranslationItem;
+  @Input() hideSourceLanguage: boolean;
 
   @ViewChild('editor1', { static: true }) editorNode1: ElementRef; // input file
   @ViewChild('editor2', { static: true }) editorNode2: ElementRef; // input file

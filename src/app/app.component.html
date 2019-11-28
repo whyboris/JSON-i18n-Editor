@@ -2,6 +2,8 @@
   <img src="assets/logo.svg">
 </div>
 
+<!-- =========================================================================================== -->
+
 <div class="help">?</div>
 <div class="help-text">
   <ul>
@@ -16,6 +18,8 @@
     </li>
   </ul>
 </div>
+
+<!-- =========================================================================================== -->
 
 <select
   (change)="changeCategory($event.target.value)"
@@ -36,22 +40,16 @@
   <option value="modified" [selected]="viewType === 'modified'">Showing modified</option>
 </select>
 
-<input
-  [(ngModel)]="filterText"
-  (keyup.esc)="filterText = ''"
-  [ngClass]="{ 'input-changed': filterText !== ''}"
-  type="text"
-  placeholder="Search {{ languageMap.get('en') }}"
->
+  <button class="button-hide-column" (click)="toggleHideColumn()">
+    {{
+          hideSourceLanguage ?
+              'Show ' + languageMap.get(SOURCE_LANGUAGE)
+            : 'Hide ' + languageMap.get(SOURCE_LANGUAGE)
+      }}
+    column
+  </button>
 
-<input
-  [(ngModel)]="filterText2"
-  (keyup.esc)="filterText2 = ''"
-  class="search-german"
-  [ngClass]="{ 'input-changed': filterText2 !== ''}"
-  type="text"
-  placeholder="Search {{ languageMap.get(this.login.language) }}"
->
+<!-- =========================================================================================== -->
 
 <virtual-scroller
   #scroll
@@ -68,32 +66,70 @@
   <app-row-component
     *ngFor="let item of scroll.viewPortItems"
     [item]="item"
+    [hideSourceLanguage]="hideSourceLanguage"
     class="full-row"
   ></app-row-component>
 
 </virtual-scroller>
 
-<button
-  (click)="reviewNow()"
-  class="button-review"
-  type="button"
->
-  REVIEW
-</button>
+<!-- =========================================================================================== -->
 
-<button
-  *ngIf="reviewedOnce"
-  (click)="saveEverything()"
-  class="button-save"
-  [disabled]=savingInProgress
-  type="button"
->
-  {{ savingInProgress ? 'saving' : 'SAVE' }}
-</button>
+<div class="bottom-controls">
+
+  <div
+    *ngIf="!hideSourceLanguage"
+    class="column"
+  >
+    <input
+      [(ngModel)]="filterText"
+      (keyup.esc)="filterText = ''"
+      [ngClass]="{ 'input-changed': filterText !== ''}"
+      type="text"
+      placeholder="Search {{ languageMap.get('en') }}"
+    >
+  </div>
+
+  <div class="column">
+    <input
+      [(ngModel)]="filterText2"
+      (keyup.esc)="filterText2 = ''"
+      class="search-translation"
+      [ngClass]="{ 'input-changed': filterText2 !== '' }"
+      type="text"
+      placeholder="Search {{ languageMap.get(this.login.language) }}"
+    >
+  </div>
+
+  <div class="column">
+    <button
+      (click)="reviewNow()"
+      class="button-review"
+      type="button"
+    >
+      REVIEW
+    </button>
+
+    <button
+      *ngIf="reviewedOnce"
+      (click)="saveEverything()"
+      class="button-save"
+      [disabled]=savingInProgress
+      type="button"
+    >
+      {{ savingInProgress ? 'saving' : 'SAVE' }}
+    </button>
+
+  </div>
+
+</div>
+
+<!-- =========================================================================================== -->
 
 <div class="loading" *ngIf="loading">
   LOADING ...
 </div>
+
+<!-- =========================================================================================== -->
 
 <div class="overlay" *ngIf="!isLoggedIn">
 

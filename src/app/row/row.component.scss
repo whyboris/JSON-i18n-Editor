@@ -23,6 +23,12 @@
 
 // Fields
 
+.all-i18n {
+  display: flex;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 .category {
   // position: -webkit-sticky;    // does not work with ngx-virtual-scroller
   // position: sticky;            // does not work with ngx-virtual-scroller
@@ -58,11 +64,10 @@
   border: 1px solid white;
   box-sizing: border-box;
   display: inline-block;
-  margin-bottom: 10px;
-  margin-left: 20px;
+  outline: none;
   padding: 0;
   vertical-align: top;
-  width: 30%;
+  flex: 1;
 }
 
 .text,
@@ -73,10 +78,6 @@
 
 .text {
   padding: 10px;
-}
-
-.editor {
-  outline: none;
 }
 
 .changed {
