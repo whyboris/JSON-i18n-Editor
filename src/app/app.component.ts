@@ -47,6 +47,7 @@ export class AppComponent {
   loginError = false;
   mainObject: TranslationItem[] = [];
   reviewedOnce: boolean;
+  saveSuccessShowing = false;
   savingInProgress = false;
   selectedPage = 'none';
   viewType: ViewType = 'everything';
@@ -159,11 +160,44 @@ export class AppComponent {
     this.mainObject.forEach((element) => {
       toSave[element.category][element.name] = element.editedText.replace('\n', '');
     });
+    console.log('Saving data:');
     console.log(toSave);
-    const res = await this.fileService.saveLanguageJSON(this.login.name, this.login.pass, this.login.language, toSave);
+
+    // TODO - strongly type:
+    const res: any = await this.fileService.saveLanguageJSON(this.login.name, this.login.pass, this.login.language, toSave);
+
     console.log('response is here:');
     console.log(res);
+
+    if (res.success) {
+      // everything has been saved -- RESTART FROM SCRATCH !!!
+      this.resetToInitial();
+    } else {
+      console.log('some error !!!');
+    }
+
   }
+
+  /**
+   * Reset to inital state -- fetching newest saved data
+   * ONLY DONE AFTER SAVE !!!
+   */
+  resetToInitial() {
+    this.loading = true;
+    this.reviewNow(); // reset everything
+    this.reviewedOnce = false;
+    this.viewType = 'everything';
+
+    this.savingInProgress = false;
+    this.saveSuccessShowing = true;
+
+    setTimeout(() => {
+      this.saveSuccessShowing = false;
+    }, 2000);
+
+    this.getAllData();
+  }
+
 
   tryLogin() {
     if (this.login.name && this.login.pass) {
