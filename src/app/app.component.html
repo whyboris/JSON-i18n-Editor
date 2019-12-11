@@ -147,17 +147,19 @@
       placeholder="Name"
       [(ngModel)]="login.name"
       (keyup.enter)=tryLogin()
+      [disabled]="waitingForServer"
       autofocus
     >
 
-    <span class="label" [ngClass]="{ hidden: !login.password }">
+    <span class="label" [ngClass]="{ hidden: !login.pass }">
       Password:
     </span>
     <input
       class="input-password"
       type="password"
       placeholder="Password"
-      [(ngModel)]="login.password"
+      [(ngModel)]="login.pass"
+      [disabled]="waitingForServer"
       (keyup.enter)=tryLogin()
     >
 
@@ -174,7 +176,7 @@
     <button
       (click)=tryLogin()
       class="button-login"
-      [disabled]="!login.name || !login.password || waitingForServer"
+      [disabled]="!login.name || !login.pass || waitingForServer"
     >
       LOGIN
     </button>

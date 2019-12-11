@@ -13,7 +13,7 @@ export interface ServerResponse {
 @Injectable()
 export class FileService {
 
-  API_URL = 'http://temp.yboris.com/hif/';
+  API_URL = 'https://temp.yboris.com/hif/';
 
   constructor(
     private http: HttpClient,
@@ -22,13 +22,14 @@ export class FileService {
   /**
    * Fetch source language from server
    */
-  public getLanguageJSON(language: AllowedLanguage) {
+  public getLanguageJSON(user: string, pass: string, language: AllowedLanguage) {
 
     // for testing
     // return language === 'en' ? en : de;
 
     const headers = new HttpHeaders()
-      .set('secret', 'abcde')
+      .set('user', user)
+      .set('pass', pass)
       .set('language', language);
 
     return new Promise(resolve => {
@@ -39,11 +40,29 @@ export class FileService {
     });
   }
 
+  public saveLanguageJSON(user: string, pass: string, language: AllowedLanguage, data: any) {
+
+    const headers = new HttpHeaders()
+      .set('user', user)
+      .set('pass', pass)
+      .set('language', language);
+
+    return new Promise(resolve => {
+      this.http.post(this.API_URL + 'save_new.php', data, { headers })
+        .subscribe((res) => {
+          console.log('response came in');
+          console.log(res);
+          resolve(res);
+        });
+    });
+
+  }
+
   public login(creds: LoginInterface) {
 
     const headers = new HttpHeaders()
-      .set('name', creds.name)
-      .set('password', creds.password);
+      .set('user', creds.name)
+      .set('pass', creds.pass);
 
     return this.http.get(this.API_URL + 'login.php', { headers });
   }

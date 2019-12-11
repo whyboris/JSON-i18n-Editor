@@ -6,7 +6,7 @@ export type AllowedLanguage = 'en' | 'de' | 'it';
 
 export interface LoginInterface {
   name: string;
-  password: string;
+  pass: string;
   language: AllowedLanguage;
 }
 
@@ -54,7 +54,7 @@ export class AppComponent {
 
   login: LoginInterface = {
     name: '',
-    password: '',
+    pass: '',
     language: 'de'
   };
 
@@ -72,8 +72,8 @@ export class AppComponent {
   async getAllData() {
 
     [this.languageOriginal, this.languageToTranslate] = await Promise.all([
-      this.fileService.getLanguageJSON(this.SOURCE_LANGUAGE),
-      this.fileService.getLanguageJSON(this.login.language)
+      this.fileService.getLanguageJSON(this.login.name, this.login.pass, this.SOURCE_LANGUAGE),
+      this.fileService.getLanguageJSON(this.login.name, this.login.pass, this.login.language)
     ]);
 
     this.categories = this.getKeys(this.languageOriginal);
@@ -148,7 +148,7 @@ export class AppComponent {
   /**
    * Create JSON
    */
-  saveEverything() {
+  async saveEverything() {
     this.savingInProgress = true;
     const toSave: any = {};
 
@@ -160,25 +160,39 @@ export class AppComponent {
       toSave[element.category][element.name] = element.editedText.replace('\n', '');
     });
     console.log(toSave);
+    const res = await this.fileService.saveLanguageJSON(this.login.name, this.login.pass, this.login.language, toSave);
+    console.log('response is here:');
+    console.log(res);
   }
 
   tryLogin() {
-    if (this.login.name && this.login.password) {
+    if (this.login.name && this.login.pass) {
       this.waitingForServer = true;
       this.fileService.login(this.login).subscribe((data: ServerResponse) => {
         this.isLoggedIn = data.success;
         if (!data.success) {
-          this.login.password = '';
-          this.loginError = true;
-          setTimeout(() => {
-            this.loginError = false;
-          }, 1000);
+          this.loginErrorNotify();
         } else {
           this.getAllData();
         }
-        this.waitingForServer = false;
+      }, (err) => {
+        this.loginErrorNotify();
       });
     }
+  }
+
+  /**
+   * Perform animation that login failed
+   * reset password
+   * make fields editable again
+   */
+  loginErrorNotify(): void {
+    this.login.pass = '';
+    this.loginError = true;
+    setTimeout(() => {
+      this.loginError = false;
+    }, 1000);
+    this.waitingForServer = false;
   }
 
 }
