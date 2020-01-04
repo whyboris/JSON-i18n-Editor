@@ -1,15 +1,17 @@
 {
-  "name": "intl",
-  "version": "0.0.0",
+  "name": "json-i18n-editor",
+  "version": "0.0.7",
+  "author": {
+    "name": "Boris Yakubchik",
+    "email": "yboris@yahoo.com"
+  },
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "build": "ng build --prod=true",
+    "lint": "ng lint"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "8.2.14",
     "@angular/common": "8.2.14",
