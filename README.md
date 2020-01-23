@@ -49,6 +49,10 @@ The structure of `en.json` is taken as authority on which keys must be present.
 - [Quill](https://github.com/quilljs/quill)
 
 
+## PHP
+
+The PHP folder has a rough-and-dirty set of files to serve as API endpoints for the front-end application.
+
 ## Credits
 
 Created for and used by [Health Impact Fund](https://healthimpactfund.org/)
