@@ -1,5 +1,12 @@
 <?php
 
-$allowed_languages =  ['en', 'de', 'it', 'es'];
+$allowed_languages =  [
+  'de', // German
+  'en', // English
+  'es', // Spanish
+  'hi', // Hindi
+  'it', // Italian
+  'zh', // Chineze (Simplified) - "zh-CN"
+];
 
 ?>

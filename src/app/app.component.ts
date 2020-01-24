@@ -2,7 +2,14 @@ import { Component } from '@angular/core';
 
 import { FileService, ServerResponse } from './file.service';
 
-export type AllowedLanguage = 'en' | 'de' | 'it' | 'es';
+export type AllowedLanguage =
+  | 'de' // German
+  | 'en' // English
+  | 'es' // Spanish
+  | 'hi' // Hindi
+  | 'it' // Italian
+  | 'zh' // Chineze (Simplified) - "zh-CN"
+;
 
 export interface LoginInterface {
   name: string;
@@ -33,7 +40,9 @@ export class AppComponent {
     ['de', 'German'],
     ['en', 'English'],
     ['es', 'Spanish'],
+    ['hi', 'Hindi'],
     ['it', 'Italian'],
+    ['zh', 'Chinese'],
   ]);
 
   SOURCE_LANGUAGE: AllowedLanguage = 'en';
