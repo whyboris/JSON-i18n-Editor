@@ -24,4 +24,23 @@ function validateUser($username, $password) {
 
 }
 
+/**
+ * Check if user has permission to edit this particular language
+ *
+ * Checked on login and on save
+ */
+function validatePermission($username, $language) {
+
+  global $permissions;
+
+  $userPermissions = $permissions[strtolower($username)];
+
+  if ($userPermissions[0] == 'all' || in_array($language, $userPermissions)) {
+    return true;
+  } else {
+    return false;
+  }
+
+}
+
 ?>

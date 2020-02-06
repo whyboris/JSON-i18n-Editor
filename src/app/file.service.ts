@@ -62,7 +62,8 @@ export class FileService {
 
     const headers = new HttpHeaders()
       .set('user', creds.name)
-      .set('pass', creds.pass);
+      .set('pass', creds.pass)
+      .set('language', creds.language);
 
     return this.http.get(this.API_URL + 'login.php', { headers });
   }
