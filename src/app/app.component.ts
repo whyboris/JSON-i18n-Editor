@@ -11,6 +11,7 @@ export type AllowedLanguage =
   | 'it' // Italian
   | 'ko' // Korean
   | 'tr' // Turkish
+  | 'ur' // Urdu
   | 'zh' // Chineze (Simplified) - "zh-CN"
 ;
 
@@ -48,6 +49,7 @@ export class AppComponent {
     ['it', 'Italian'],
     ['ko', 'Korean'],
     ['tr', 'Turkish'],
+    ['ur', 'Urdu'],
     ['zh', 'Chinese'],
   ]);
 

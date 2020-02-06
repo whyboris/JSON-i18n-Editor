@@ -9,6 +9,7 @@ $allowed_languages =  [
   'it', // Italian
   'ko', // Korean
   'tr', // Turkish
+  'ur', // Urdu
   'zh', // Chineze (Simplified) - "zh-CN"
 ];
 
