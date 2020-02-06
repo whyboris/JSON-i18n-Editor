@@ -8,7 +8,7 @@ $user = $_SERVER['HTTP_USER'];
 $pass = $_SERVER['HTTP_PASS'];
 $language = $_SERVER['HTTP_LANGUAGE'];
 
-if (validateUser($user, $pass) && validatePermission($user, $language)) {
+if (validateUser($user, $pass) && validatePermission($user, $language) && $user != 'guest') {
 
   if (in_array($language, $allowed_languages)) {
     // echo 'language exists!';

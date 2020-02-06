@@ -6,6 +6,12 @@
   <img width="800" alt="JSON-i18n-Editor" src="https://user-images.githubusercontent.com/17264277/69726280-31ae7880-10ee-11ea-886a-e57c0c8106bc.png">
 </p>
 
+## Try it
+
+_Save functionality is disabled_ for the demo: https://json-i18n-editor.now.sh/
+- Login: `guest`
+- Pass: `guest`
+
 ## Features
 
 - Shows three columns: original language, last-saved translation (if any), and editable text box.
