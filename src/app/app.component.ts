@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FileService, ServerResponse } from './file.service';
 
 export type AllowedLanguage =
+  | 'ar' // Arabic
   | 'de' // German
   | 'en' // English
   | 'es' // Spanish
@@ -41,6 +42,7 @@ export type ViewType = 'everything' | 'modified' | 'untranslated';
 export class AppComponent {
 
   languageMap: Map<AllowedLanguage, string> = new Map([
+    ['ar', 'Arabic'],
     ['de', 'German'],
     ['en', 'English'],
     ['es', 'Spanish'],

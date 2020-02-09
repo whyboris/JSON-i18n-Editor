@@ -1,6 +1,7 @@
 <?php
 
 $allowed_languages =  [
+  'ar', // Arabic
   'de', // German
   'en', // English
   'es', // Spanish
