@@ -6,6 +6,7 @@ $allowed_languages =  [
   'en', // English
   'es', // Spanish
   'fr', // French
+  'ha', // Hausa
   'hi', // Hindi
   'it', // Italian
   'ko', // Korean

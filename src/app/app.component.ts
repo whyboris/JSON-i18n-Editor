@@ -8,6 +8,7 @@ export type AllowedLanguage =
   | 'en' // English
   | 'es' // Spanish
   | 'fr' // French
+  | 'ha' // Hausa
   | 'hi' // Hindi
   | 'it' // Italian
   | 'ko' // Korean
@@ -47,6 +48,7 @@ export class AppComponent {
     ['en', 'English'],
     ['es', 'Spanish'],
     ['fr', 'French'],
+    ['ha', 'Hausa'],
     ['hi', 'Hindi'],
     ['it', 'Italian'],
     ['ko', 'Korean'],
