@@ -9,6 +9,7 @@ $allowed_languages =  [
   'ha', // Hausa
   'hi', // Hindi
   'it', // Italian
+  'ja', // Japanese
   'ko', // Korean
   'tr', // Turkish
   'ur', // Urdu

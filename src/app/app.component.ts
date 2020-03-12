@@ -11,6 +11,7 @@ export type AllowedLanguage =
   | 'ha' // Hausa
   | 'hi' // Hindi
   | 'it' // Italian
+  | 'ja' // Japanese
   | 'ko' // Korean
   | 'tr' // Turkish
   | 'ur' // Urdu
@@ -51,6 +52,7 @@ export class AppComponent {
     ['ha', 'Hausa'],
     ['hi', 'Hindi'],
     ['it', 'Italian'],
+    ['ja', 'Japanese'],
     ['ko', 'Korean'],
     ['tr', 'Turkish'],
     ['ur', 'Urdu'],
