@@ -13,9 +13,6 @@
     <li>
       Text like <pre>&#123;intl_something&#125;</pre> should not be removed.
     </li>
-    <li>
-      Team section <pre>_long</pre> text fields allow <pre>&#123;breakingLine&#125;</pre> to break up the text into paragraphs.
-    </li>
   </ul>
 </div>
 
@@ -42,10 +39,10 @@
 
   <button class="button-hide-column" (click)="toggleHideColumn()">
     {{
-          hideSourceLanguage ?
-              'Show ' + languageMap.get(SOURCE_LANGUAGE)
-            : 'Hide ' + languageMap.get(SOURCE_LANGUAGE)
-      }}
+      hideSourceLanguage ?
+          'Show ' + languageNames[SOURCE_LANGUAGE]
+        : 'Hide ' + languageNames[SOURCE_LANGUAGE]
+    }}
     column
   </button>
 
@@ -85,7 +82,7 @@
       (keyup.esc)="filterText = ''"
       [ngClass]="{ 'input-changed': filterText !== ''}"
       type="text"
-      placeholder="Search {{ languageMap.get('en') }}"
+      placeholder="Search {{ languageNames['en'] }}"
     >
   </div>
 
@@ -96,7 +93,7 @@
       class="search-translation"
       [ngClass]="{ 'input-changed': filterText2 !== '' }"
       type="text"
-      placeholder="Search {{ languageMap.get(this.login.language) }}"
+      placeholder="Search {{ languageNames[login.language] }}"
     >
   </div>
 
@@ -173,20 +170,12 @@
     </span>
     <select (change)="changeLanguage($event.target.value)">
       <option selected="true" disabled="disabled">choose</option>
-      <option value="ar">Arabic</option>
-      <option value="zh">Chinese</option>
-      <option value="en">English</option>
-      <option value="fr">French</option>
-      <option value="de">German</option>
-      <option value="ha">Hausa</option>
-      <option value="hi">Hindi</option>
-      <option value="it">Italian</option>
-      <option value="ja">Japanese</option>
-      <option value="ko">Korean</option>
-      <option value="pt">Portuguese</option>
-      <option value="es">Spanish</option>
-      <option value="tr">Turkish</option>
-      <option value="ur">Urdu</option>
+      <option
+        *ngFor="let lang of languageList"
+        value="{{ lang }}"
+      >
+        {{ languageNames[lang] }}
+      </option>
     </select>
 
     <button

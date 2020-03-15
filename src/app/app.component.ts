@@ -2,22 +2,7 @@ import { Component } from '@angular/core';
 
 import { FileService, ServerResponse } from './file.service';
 
-export type AllowedLanguage =
-  | 'ar' // Arabic
-  | 'de' // German
-  | 'en' // English
-  | 'es' // Spanish
-  | 'fr' // French
-  | 'ha' // Hausa
-  | 'hi' // Hindi
-  | 'it' // Italian
-  | 'ja' // Japanese
-  | 'ko' // Korean
-  | 'pt' // Portuguese (Portugal, Brazil)
-  | 'tr' // Turkish
-  | 'ur' // Urdu
-  | 'zh' // Chineze (Simplified) - "zh-CN"
-;
+import { AllowedLanguage, LanguageList, LanguageNames } from './languages';
 
 export interface LoginInterface {
   name: string;
@@ -44,22 +29,9 @@ export type ViewType = 'everything' | 'modified' | 'untranslated';
 })
 export class AppComponent {
 
-  languageMap: Map<AllowedLanguage, string> = new Map([
-    ['ar', 'Arabic'],
-    ['de', 'German'],
-    ['en', 'English'],
-    ['es', 'Spanish'],
-    ['fr', 'French'],
-    ['ha', 'Hausa'],
-    ['hi', 'Hindi'],
-    ['it', 'Italian'],
-    ['ja', 'Japanese'],
-    ['ko', 'Korean'],
-    ['pt', 'Portuguese'],
-    ['tr', 'Turkish'],
-    ['ur', 'Urdu'],
-    ['zh', 'Chinese'],
-  ]);
+  languageList: AllowedLanguage[] = LanguageList;
+
+  languageNames = LanguageNames;
 
   SOURCE_LANGUAGE: AllowedLanguage = 'en';
 

@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { LoginInterface, AllowedLanguage } from './app.component';
+
+import { LoginInterface } from './app.component';
+
+import { AllowedLanguage } from './languages';
 
 const en: JSON = require('../assets/en.json');
 const de: JSON = require('../assets/de.json');
