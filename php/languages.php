@@ -11,6 +11,7 @@ $allowed_languages =  [
   'it', // Italian
   'ja', // Japanese
   'ko', // Korean
+  'pt', // Portuguese (Portugal, Brazil)
   'tr', // Turkish
   'ur', // Urdu
   'zh', // Chineze (Simplified) - "zh-CN"
