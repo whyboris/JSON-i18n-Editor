@@ -10,6 +10,7 @@ export type AllowedLanguage =
   | 'ja' // Japanese
   | 'ko' // Korean
   | 'pt' // Portuguese (Portugal, Brazil)
+  | 'ru' // Russian
   | 'tr' // Turkish
   | 'ur' // Urdu
   | 'zh' // Chineze (Simplified) - "zh-CN"
@@ -27,6 +28,7 @@ export const LanguageList: AllowedLanguage[] = [
   `ja`, // Japanese
   `ko`, // Korean
   `pt`, // Portuguese (Portugal, Brazil)
+  `ru`, // Russian
   `es`, // Spanish
   `tr`, // Turkish
   `ur`, // Urdu
@@ -44,6 +46,7 @@ export const LanguageNames: Record<AllowedLanguage, string> =  {
   ja: 'Japanese',
   ko: 'Korean',
   pt: 'Portuguese',
+  ru: 'Russian',
   tr: 'Turkish',
   ur: 'Urdu',
   zh: 'Chinese',
