@@ -64,6 +64,7 @@
     *ngFor="let item of scroll.viewPortItems"
     [item]="item"
     [hideSourceLanguage]="hideSourceLanguage"
+    [rtlLanguage]="login.language === 'ar'"
     class="full-row"
   ></app-row-component>
 

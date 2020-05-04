@@ -18,6 +18,7 @@ export class RowComponent implements AfterViewInit {
 
   @Input() item: TranslationItem;
   @Input() hideSourceLanguage: boolean;
+  @Input() rtlLanguage: boolean;
 
   @ViewChild('editor1', { static: true }) editorNode1: ElementRef; // input file
   @ViewChild('editor2', { static: true }) editorNode2: ElementRef; // input file
@@ -52,6 +53,11 @@ export class RowComponent implements AfterViewInit {
 
     this.editor1 = new QuillRef.Quill(this.editorNode1.nativeElement, readOnly);
     this.editor2 = new QuillRef.Quill(this.editorNode2.nativeElement, defaultOptions);
+
+    if (this.rtlLanguage) {
+      this.editorNode1.nativeElement.classList.add('rtl-lang');
+      this.editorNode2.nativeElement.classList.add('rtl-lang');
+    }
 
     const newOps: any = {
       ops: [{
