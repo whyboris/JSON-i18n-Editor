@@ -5,8 +5,8 @@ import { LoginInterface } from './app.component';
 
 import { AllowedLanguage } from './languages';
 
-const en: JSON = require('../assets/en.json');
-const de: JSON = require('../assets/de.json');
+// const en: JSON = require('../assets/en.json');                                     // for testing
+// const de: JSON = require('../assets/de.json');                                     // for testing
 
 export interface ServerResponse {
   success: boolean;
@@ -16,7 +16,7 @@ export interface ServerResponse {
 @Injectable()
 export class FileService {
 
-  API_URL = 'https://temp.yboris.com/hif/';
+  API_URL = 'https://admin.healthimpactfund.org/translate/';
 
   constructor(
     private http: HttpClient,
@@ -27,8 +27,7 @@ export class FileService {
    */
   public getLanguageJSON(user: string, pass: string, language: AllowedLanguage) {
 
-    // for testing
-    // return language === 'en' ? en : de;
+    // return language === 'en' ? en : de;                                            // for testing
 
     const headers = new HttpHeaders()
       .set('user', user)
