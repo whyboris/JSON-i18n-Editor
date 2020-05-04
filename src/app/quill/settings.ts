@@ -1,5 +1,5 @@
 export const defaultOptions = {
-  formats: null,
+  formats: ['background', 'strike'],
   modules: {
     toolbar: null,
     keyboard: {
