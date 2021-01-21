@@ -45,7 +45,7 @@ The structure of `en.json` is taken as authority on which keys must be present.
 
 1. Create the source-of-truth original `en.json` file
 2. Use an [automated system](https://www.npmjs.com/package/translate-json-object) to translate all text into `de.json`
-3. Use **JSON i18n Editor** to fix the automated translateion
+3. Use **JSON i18n Editor** to fix the automated translation
 
 ## Technology
 
