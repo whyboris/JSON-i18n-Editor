@@ -50,7 +50,7 @@ The structure of `en.json` is taken as authority on which keys must be present.
 ## Technology
 
 **JSON i18n Editor** is built with:
-- [Angular 12](https://angular.io/) (September 2021)
+- [Angular 13](https://angular.io/) (February 2022)
 - [ngx-virtual-scroller](https://github.com/rintoj/ngx-virtual-scroller)
 - [Quill](https://github.com/quilljs/quill)
 
