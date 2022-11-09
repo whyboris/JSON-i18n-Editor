@@ -41,6 +41,10 @@ _The value of all the keys at depth 1 must always be objects containing only key
 
 The structure of `en.json` is taken as authority on which keys must be present.
 
+## Server
+
+The PHP folder has a rough-and-dirty set of files to serve as API endpoints for the front-end application.
+
 ## Recommended workflow
 
 1. Create the source-of-truth original `en.json` file
@@ -53,11 +57,6 @@ The structure of `en.json` is taken as authority on which keys must be present.
 - [Angular 13](https://angular.io/) (February 2022)
 - [ngx-virtual-scroller](https://github.com/rintoj/ngx-virtual-scroller)
 - [Quill](https://github.com/quilljs/quill)
-
-
-## PHP
-
-The PHP folder has a rough-and-dirty set of files to serve as API endpoints for the front-end application.
 
 ## Credits
 
