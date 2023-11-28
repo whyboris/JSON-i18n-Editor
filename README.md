@@ -9,6 +9,7 @@
 ## Try it
 
 _Save functionality is disabled_ for the demo: https://json-i18n-editor.now.sh/
+
 - Login: `guest`
 - Pass: `guest`
 
@@ -22,7 +23,8 @@ _Save functionality is disabled_ for the demo: https://json-i18n-editor.now.sh/
 
 ## How to use
 
-It *requires* two input `JSON` files (currently hardcoded as an example: `en.json` & `de.json`) each of which must have a depth of 2, for example:
+It _requires_ two input `JSON` files (currently hardcoded as an example: `en.json` & `de.json`) each of which must have a depth of 2, for example:
+
 ```JSON
 {
   "categoryName": {
@@ -37,7 +39,8 @@ It *requires* two input `JSON` files (currently hardcoded as an example: `en.jso
   ...
 }
 ```
-_The value of all the keys at depth 1 must always be objects containing only keys that have strings as values_
+
+Note: _The value of all the keys at depth 1 must always be objects containing only keys that have strings as values_
 
 The structure of `en.json` is taken as authority on which keys must be present.
 
@@ -54,7 +57,8 @@ The PHP folder has a rough-and-dirty set of files to serve as API endpoints for 
 ## Technology
 
 **JSON i18n Editor** is built with:
-- [Angular 13](https://angular.io/) (February 2022)
+
+- [Angular](https://angular.io/) (Current version is 17, updated December 2023)
 - [ngx-virtual-scroller](https://github.com/rintoj/ngx-virtual-scroller)
 - [Quill](https://github.com/quilljs/quill)
 
