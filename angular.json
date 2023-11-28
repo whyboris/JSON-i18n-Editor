@@ -70,18 +70,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "intl:build"
+            "buildTarget": "intl:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "intl:build:production"
+              "buildTarget": "intl:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "intl:build"
+            "buildTarget": "intl:build"
           }
         },
         "test": {
@@ -125,7 +125,6 @@
       }
     }
   },
-  "defaultProject": "intl",
   "cli": {
     "analytics": false
   }
